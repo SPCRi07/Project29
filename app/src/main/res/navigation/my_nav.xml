@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/firstNav">
+
+    <fragment
+        android:id="@+id/firstNav"
+        android:name="com.mca.project29.FirstNav"
+        android:label="fragment_first_nav"
+        tools:layout="@layout/fragment_first_nav" >
+        <action
+            android:id="@+id/action_firstNav_to_secNav"
+            app:destination="@id/secNav"
+            app:enterAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/secNav"
+        android:name="com.mca.project29.SecNav"
+        android:label="fragment_sec_nav"
+        tools:layout="@layout/fragment_sec_nav" >
+        <action
+            android:id="@+id/action_secNav_to_thirdNav"
+            app:destination="@id/thirdNav"
+            app:enterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_secNav_to_firstNav"
+            app:destination="@id/firstNav"
+            app:enterAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdNav"
+        android:name="com.mca.project29.ThirdNav"
+        android:label="fragment_third_nav"
+        tools:layout="@layout/fragment_third_nav" >
+        <action
+            android:id="@+id/action_thirdNav_to_secNav"
+            app:destination="@id/secNav"
+            app:enterAnim="@android:anim/slide_out_right" />
+    </fragment>
+</navigation>

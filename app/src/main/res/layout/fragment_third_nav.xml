@@ -3,17 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6ADDD3"
-    tools:context=".ThirdNav">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".onscreenBoarding.ThirdNav">
 
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Third"
-        android:id="@+id/navthird"
         android:layout_gravity="center"
         android:textSize="30sp"
         />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/navthird"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:foregroundGravity="right"
+        app:tint="@color/black"
+        android:paddingBottom="20dp"
+        app:contentPaddingStart="220dp"
+        app:srcCompat="@drawable/done_24" />
 
 </FrameLayout>

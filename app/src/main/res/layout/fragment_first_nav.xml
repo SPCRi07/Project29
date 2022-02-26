@@ -3,16 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstNav"
-    android:background="#524ED3">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".onscreenBoarding.FirstNav"
+    android:background="#fff">
 
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="First"
-        android:id="@+id/navfirst"
         android:layout_gravity="center"
         android:textSize="30sp"
         />
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:foregroundGravity="right"
+        app:tint="@color/black"
+        android:id="@+id/navfirst"
+        android:paddingBottom="20dp"
+        app:contentPaddingStart="220dp"
+        app:srcCompat="@drawable/arrow_forward_24" />
 </FrameLayout>

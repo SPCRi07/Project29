@@ -1,30 +1,33 @@
-package com.mca.project29
+package com.mca.project29.onscreenBoarding
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
+import androidx.viewpager2.widget.ViewPager2
+import com.mca.project29.R
 import com.mca.project29.databinding.FragmentFirstNavBinding
-import com.mca.project29.databinding.FragmentSecNavBinding
 
-class SecNav : Fragment() {
-    private var _binding: FragmentSecNavBinding? = null
+class FirstNav : Fragment() {
+
+    private var _binding: FragmentFirstNavBinding? = null
 
 
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding= FragmentSecNavBinding.inflate(inflater, container, false)
-        val view=binding.root
 
-        binding.navsecond.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_secNav_to_thirdNav)
-        }
+     _binding= FragmentFirstNavBinding.inflate(inflater, container, false)
+        val view=binding.root
+        val viewpager=activity?.findViewById<ViewPager2>(R.id.viewpager)
+
+
+            binding.navfirst.setOnClickListener {
+                viewpager?.currentItem=1
+             }
 
 
         return view

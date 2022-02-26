@@ -8,5 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="acc">#D5BB90</color>
-
+    <color name="progress">#DC7138</color>
+    <color name="bgtextbox">#F4EFEF</color>
+    <color name="softgreen">#D5EBDA</color>
 </resources>

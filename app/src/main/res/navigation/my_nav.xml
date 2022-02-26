@@ -3,40 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/firstNav">
-
+    app:startDestination="@id/splashScreen">
     <fragment
-        android:id="@+id/firstNav"
-        android:name="com.mca.project29.FirstNav"
-        android:label="fragment_first_nav"
-        tools:layout="@layout/fragment_first_nav" >
+        android:id="@+id/splashScreen"
+        android:name="com.mca.project29.onscreenBoarding.SplashScreen"
+        android:label="Splashscreen"
+        tools:layout="@layout/activity_splashscreen" >
         <action
-            android:id="@+id/action_firstNav_to_secNav"
-            app:destination="@id/secNav"
-            app:enterAnim="@android:anim/slide_in_left" />
+            android:id="@+id/action_splashScreen_to_viewpager3"
+            app:destination="@id/viewpager3" />
     </fragment>
     <fragment
-        android:id="@+id/secNav"
-        android:name="com.mca.project29.SecNav"
-        android:label="fragment_sec_nav"
-        tools:layout="@layout/fragment_sec_nav" >
-        <action
-            android:id="@+id/action_secNav_to_thirdNav"
-            app:destination="@id/thirdNav"
-            app:enterAnim="@android:anim/slide_in_left" />
-        <action
-            android:id="@+id/action_secNav_to_firstNav"
-            app:destination="@id/firstNav"
-            app:enterAnim="@android:anim/slide_out_right" />
-    </fragment>
-    <fragment
-        android:id="@+id/thirdNav"
-        android:name="com.mca.project29.ThirdNav"
-        android:label="fragment_third_nav"
-        tools:layout="@layout/fragment_third_nav" >
-        <action
-            android:id="@+id/action_thirdNav_to_secNav"
-            app:destination="@id/secNav"
-            app:enterAnim="@android:anim/slide_out_right" />
-    </fragment>
+        android:id="@+id/viewpager3"
+        android:name="com.mca.project29.onscreenBoarding.Viewpager"
+        android:label="fragment_viewpager"
+        tools:layout="@layout/fragment_viewpager" />
 </navigation>

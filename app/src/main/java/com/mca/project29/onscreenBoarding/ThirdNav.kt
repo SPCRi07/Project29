@@ -1,12 +1,13 @@
-package com.mca.project29
+package com.mca.project29.onscreenBoarding
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import com.mca.project29.databinding.FragmentFirstNavBinding
+import com.mca.project29.LoginActivity
 import com.mca.project29.databinding.FragmentThirdNavBinding
 
 class ThirdNav : Fragment() {
@@ -23,11 +24,20 @@ class ThirdNav : Fragment() {
         val view=binding.root
 
         binding.navthird.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_thirdNav_to_secNav)
+            val intent= Intent(context,LoginActivity::class.java)
+            onBoardingFinished()
+            startActivity(intent)
         }
 
 
         return view
+    }
+
+    private fun onBoardingFinished(){
+        val sharePref =requireActivity().getSharedPreferences("onboarding",Context.MODE_PRIVATE)
+        val editor=sharePref.edit()
+        editor.putBoolean("Finished",true)
+        editor.apply()
     }
 
     override fun onDestroyView() {

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "390867311402",
+    "project_id": "myroshopping",
+    "storage_bucket": "myroshopping.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390867311402:android:a9bb4e4cea74900be5dc53",
+        "android_client_info": {
+          "package_name": "com.mca.project29"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390867311402-gelj7c78irjism2lfik1vcehqmq2utn0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzqpLDiokACIUhGJHOBRBJ6TSGDf1nSoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390867311402-gelj7c78irjism2lfik1vcehqmq2utn0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

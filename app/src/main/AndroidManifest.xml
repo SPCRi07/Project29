@@ -3,6 +3,7 @@
     package="com.mca.project29">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -11,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project29">
+        <activity
+            android:name=".LoginOtpEnter"
+            android:exported="false" />
+
         <activity
             android:name=".LoginwithOtp"
             android:exported="false" />
@@ -24,7 +29,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+           </activity>
         <activity android:name=".LoginActivity" />
 
         <meta-data

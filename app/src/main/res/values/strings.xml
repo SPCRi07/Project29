@@ -6,4 +6,6 @@
     <string name="password">Enter your Password</string>
     <string name="create_new_account">No Account?Create One</string>
     <string name="login">Login</string>
+    <string name="enter_phone">Enter Your Phone Number</string>
+    <string name="login_with_phone_num">Login with Phone Num</string>
 </resources>

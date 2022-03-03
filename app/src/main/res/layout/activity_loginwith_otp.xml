@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:weightSum="2"
+    android:id="@+id/loginactivitylayout">
+
+
+    <ProgressBar
+        android:id="@+id/progressotpactivity"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:progressBackgroundTint="@color/white"
+        android:progressBackgroundTintMode="screen"
+        android:progressTint="@color/black"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/logootp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/logootp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="144dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/shoppingbag"
+        app:layout_constraintBottom_toTopOf="@+id/otplayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/otplayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:theme="@style/textlabel"
+        app:layout_constraintBottom_toTopOf="@+id/loginotp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phonenumtext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxStrokeColor="@color/softgreen"
+            app:errorEnabled="true"
+            app:hintTextColor="@color/black"
+            app:placeholderText="Enter Your Phone Number"
+            tools:layout_editor_absoluteX="-3dp"
+            tools:layout_editor_absoluteY="379dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:drawableStart="@drawable/ic_phone_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/adamina"
+                android:hint="@string/enter_phone"
+                android:inputType="number"
+                android:maxLength="10"
+                android:minLines="10"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="6dp"
+                tools:layout_editor_absoluteY="370dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginotp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="128dp"
+        android:fontFamily="@font/noto_serif"
+        android:gravity="center"
+        android:padding="10sp"
+        android:text="@string/login"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:backgroundTint="#F4EFEF"
+        app:backgroundTintMode="src_over"
+        app:cornerRadius="20dp"
+        app:elevation="20sp"
+        app:icon="@drawable/ic_home1"
+        app:iconSize="20sp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/signupinotp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/softgreen" />
+
+    <TextView
+        android:id="@+id/signupinotp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="@font/adamina"
+        android:text="@string/create_new_account"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

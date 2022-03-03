@@ -1,5 +1,6 @@
 package com.mca.project29
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -25,6 +26,12 @@ class LoginActivity : AppCompatActivity() {
                     binding.progressmainactivity.visibility=View.INVISIBLE
                 }
                 ,1000)
+        }
+
+        binding.otpactivity.setOnClickListener {
+
+            var i=Intent(applicationContext,LoginwithOtp::class.java)
+            startActivity(i)
         }
     }
 }

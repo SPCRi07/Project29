@@ -23,8 +23,8 @@
         android:layout_height="150dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="90dp"
-        android:src="@drawable/shoppingbag"
-        android:contentDescription="@string/app_name" />
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/shoppingbag" />
 
 
     <LinearLayout
@@ -32,7 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:id="@+id/abc1"
-        android:layout_marginTop="50dp"
+        android:padding="15dp"
+        android:layout_marginTop="20dp"
         android:theme="@style/textlabel"
         >
 
@@ -40,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
-            android:id="@+id/editText"
+            android:id="@+id/emailid"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/softgreen"
             app:placeholderText="@string/email_address"
@@ -71,23 +72,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/abc1"
-        android:padding="5dp">
+        android:padding="10dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editText2"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:textColorHint="@color/black"
             android:theme="@style/textlabel"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="@color/softgreen"
-            app:boxCornerRadiusBottomStart="5dp"
             app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxStrokeColor="@color/softgreen"
             app:errorEnabled="true"
-            android:padding="10dp"
             app:hintTextColor="@color/black"
             app:passwordToggleEnabled="true"
-            android:textColorHint="@color/black"
             app:passwordToggleTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -105,42 +108,65 @@
     </LinearLayout>
 
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/signup"
+        android:layout_above="@id/otpactivity"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
-        app:cornerRadius="20dp"
-        app:backgroundTint="#F4EFEF"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/noto_serif"
+        android:padding="10sp"
         android:text="@string/login"
-        app:icon="@drawable/ic_home1"
-        app:iconSize="20sp"
-        app:rippleColor="@color/softgreen"
-        app:iconTint="@color/black"
         android:textColor="@color/black"
         android:textSize="17sp"
-        app:elevation="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="#F4EFEF"
         app:backgroundTintMode="src_over"
+        app:cornerRadius="20dp"
+        app:elevation="20sp"
+        app:icon="@drawable/ic_home1"
+        app:iconSize="20sp"
+        app:iconTint="@color/black"
+        app:rippleColor="@color/softgreen" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/otpactivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/signup"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:fontFamily="@font/noto_serif"
         android:padding="10sp"
-        android:textStyle="bold" />
+        android:text="@string/login_with_phone_num"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:backgroundTint="#F4EFEF"
+        app:backgroundTintMode="src_over"
+        app:cornerRadius="20dp"
+        app:elevation="20sp"
+        app:icon="@drawable/ic_phone_24"
+        app:iconSize="20sp"
+        app:rippleColor="@color/softgreen"
+        app:iconTint="@color/black" />
 
     <TextView
-        android:layout_marginTop="30sp"
         android:id="@+id/signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:text="@string/create_new_account"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="30sp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/adamina"
-        />
+        android:text="@string/create_new_account"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
 </RelativeLayout>

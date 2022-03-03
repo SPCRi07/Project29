@@ -24,12 +24,7 @@ class LoginActivity : AppCompatActivity() {
                 {
                     binding.progressmainactivity.visibility=View.INVISIBLE
                 }
-                ,3000)
-
-
+                ,1000)
         }
-
-
-
     }
 }

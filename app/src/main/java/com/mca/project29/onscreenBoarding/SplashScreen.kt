@@ -28,11 +28,10 @@ class SplashScreen : Fragment() {
 
         _binding = ActivitySplashscreenBinding.inflate(inflater, container, false)
         val view = binding.root
-
-        var animation = AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation)
+        var animation2 = AnimationUtils.loadAnimation(context, R.anim.blink)
+        binding.logo.animation=animation2
+        var animation = AnimationUtils.loadAnimation(context, R.anim.blink)
         binding.appname.animation = animation
-        var animation2 = AnimationUtils.loadAnimation(context, R.anim.fade_transtition)
-        binding.logo.animation = animation2
 
         var handler = Handler(Looper.myLooper()!!)
         handler.postDelayed({
@@ -45,7 +44,7 @@ class SplashScreen : Fragment() {
                 findNavController().navigate(R.id.action_splashScreen_to_viewpager3)
 
             }
-        }, 3000)
+        }, 1000)
 
         return view
     }

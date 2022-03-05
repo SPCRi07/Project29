@@ -11,7 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.navigation.fragment.findNavController
-import com.mca.project29.LoginActivity
+import com.mca.project29.LoginRegister.LoginActivity
 import com.mca.project29.R
 import com.mca.project29.databinding.ActivitySplashscreenBinding
 
@@ -36,7 +36,7 @@ class SplashScreen : Fragment() {
         var handler = Handler(Looper.myLooper()!!)
         handler.postDelayed({
             if(onboardingfinished()){
-                        val intent=Intent(context,LoginActivity::class.java)
+                        val intent=Intent(context, LoginActivity::class.java)
                         startActivity(intent)
             }
             else

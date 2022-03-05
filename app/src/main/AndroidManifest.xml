@@ -3,7 +3,7 @@
     package="com.mca.project29">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,24 +13,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project29">
         <activity
-            android:name=".LoginOtpEnter"
-            android:exported="false" />
+            android:name=".HomeMain"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
-            android:name=".LoginwithOtp"
+            android:name=".LoginRegister.LoginOtpEnter"
+            android:exported="false" />
+        <activity
+            android:name=".LoginRegister.LoginwithOtp"
             android:exported="false" />
         <activity
             android:name=".onscreenBoarding.FirstActivity"
             android:autoRemoveFromRecents="true"
             android:exported="true"
             android:noHistory="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-           </activity>
-        <activity android:name=".LoginActivity" />
+        </activity>
+        <activity android:name=".LoginRegister.LoginActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

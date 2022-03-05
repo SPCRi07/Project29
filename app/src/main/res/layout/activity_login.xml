@@ -32,7 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:id="@+id/abc1"
-        android:padding="15dp"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="10dp"
         android:layout_marginTop="20dp"
         android:theme="@style/textlabel"
         >
@@ -49,7 +51,11 @@
             app:boxCornerRadiusBottomEnd="5dp"
             app:hintTextColor="@color/black"
             app:boxBackgroundColor="@color/black"
-            android:padding="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
+            android:paddingTop="10dp"
             android:textColorHint="@color/black"
             >
 
@@ -72,7 +78,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/abc1"
-        android:padding="10dp">
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp"
+        >
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password"
@@ -89,6 +97,8 @@
             app:boxCornerRadiusBottomStart="5dp"
             app:boxStrokeColor="@color/softgreen"
             app:errorEnabled="true"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
             app:hintTextColor="@color/black"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/black">
@@ -99,6 +109,8 @@
                 android:backgroundTint="@color/white"
                 android:drawableStart="@drawable/ic_lock_24"
                 android:drawablePadding="6dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:fontFamily="@font/adamina"
                 android:hint="@string/password"
                 android:inputType="textPassword"
@@ -112,25 +124,25 @@
         android:id="@+id/loginbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/otpactivity"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/noto_serif"
+        android:fontFamily="@font/alegreya_sans_light"
         android:padding="10sp"
         android:text="@string/login"
-        android:textColor="@color/black"
-        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:backgroundTint="#F4EFEF"
+        app:backgroundTint="@color/black"
         app:backgroundTintMode="src_over"
         app:cornerRadius="20dp"
         app:elevation="20sp"
         app:icon="@drawable/ic_home1"
         app:iconSize="20sp"
-        app:iconTint="@color/black"
+        app:iconTint="@color/white"
         app:rippleColor="@color/softgreen" />
 
     <com.google.android.material.button.MaterialButton
@@ -139,7 +151,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/signup"
         android:layout_gravity="center"
-        android:layout_margin="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
         android:fontFamily="@font/noto_serif"
         android:padding="10sp"
         android:text="@string/login_with_phone_num"
@@ -152,17 +167,18 @@
         app:elevation="20sp"
         app:icon="@drawable/ic_phone_24"
         app:iconSize="20sp"
-        app:rippleColor="@color/softgreen"
-        app:iconTint="@color/black" />
+        app:iconGravity="textStart"
+        app:iconTint="@color/black"
+        app:rippleColor="@color/softgreen" />
 
     <TextView
         android:id="@+id/signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="30sp"
+        android:layout_above="@id/loginbtn"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/adamina"
         android:text="@string/create_new_account"

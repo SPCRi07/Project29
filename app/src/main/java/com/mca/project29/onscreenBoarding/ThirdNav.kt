@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.mca.project29.LoginActivity
+import com.mca.project29.LoginRegister.LoginActivity
 import com.mca.project29.databinding.FragmentThirdNavBinding
 
 class ThirdNav : Fragment() {
@@ -24,7 +24,7 @@ class ThirdNav : Fragment() {
         val view=binding.root
 
         binding.navthird.setOnClickListener {
-            val intent= Intent(context,LoginActivity::class.java)
+            val intent= Intent(context, LoginActivity::class.java)
             onBoardingFinished()
             startActivity(intent)
         }

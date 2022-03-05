@@ -1,4 +1,4 @@
-package com.mca.project29
+package com.mca.project29.LoginRegister
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.otpactivity.setOnClickListener {
 
-            var i=Intent(applicationContext,LoginwithOtp::class.java)
+            var i=Intent(applicationContext, LoginwithOtp::class.java)
             startActivity(i)
         }
     }

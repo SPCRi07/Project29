@@ -6,7 +6,6 @@
     android:background="@color/primarycolor"
     android:layout_height="match_parent">
 
-
     <ProgressBar
         android:id="@+id/progressotpenter"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -17,14 +16,13 @@
         android:progressBackgroundTintMode="screen"
         android:progressTint="@color/black"
         android:visibility="gone"
-        android:layout_above="@id/heading7"
-
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_verification_code"
         android:textSize="25sp"
+        android:layout_below="@id/progressotpenter"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:textColor="@color/black"

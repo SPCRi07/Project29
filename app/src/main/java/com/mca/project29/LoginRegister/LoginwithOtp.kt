@@ -1,20 +1,16 @@
-package com.mca.project29
+package com.mca.project29.LoginRegister
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.compose.material.Snackbar
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.mca.project29.databinding.ActivityLoginwithOtpBinding
-import com.mca.project29.onscreenBoarding.binding
 import java.util.concurrent.TimeUnit
-
-
 
 class LoginwithOtp : AppCompatActivity() {
 
@@ -57,9 +53,10 @@ class LoginwithOtp : AppCompatActivity() {
                         ) {
                             binding.progressotpactivity.visibility=View.INVISIBLE
                             com.google.android.material.snackbar.Snackbar.make(binding.root,"Code Sent",1000).show()
-                            val intent = Intent(applicationContext,LoginOtpEnter::class.java)
+                            val intent = Intent(applicationContext, LoginOtpEnter::class.java)
                             intent.putExtra("verificationId",verificationId)
                             startActivity(intent)
+                            finish()
                         }
 
                         override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {

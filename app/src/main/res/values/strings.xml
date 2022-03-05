@@ -15,4 +15,7 @@
     <string name="search">Search</string>
     <string name="cart">Cart</string>
     <string name="setting">Setting</string>
+    <string name="phone_number_login">Phone Number Login</string>
+    <string name="custom_email_login">Custom Email Login</string>
+
 </resources>

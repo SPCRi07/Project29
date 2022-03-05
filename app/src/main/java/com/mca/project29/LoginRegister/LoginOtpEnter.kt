@@ -168,6 +168,7 @@ class LoginOtpEnter : AppCompatActivity() {
                 } else {
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         Snackbar.make(binding.root,"OTP is not Valid",Snackbar.LENGTH_LONG).show()
+
                     }
                 }
             }

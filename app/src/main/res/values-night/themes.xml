@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.Project29" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/black</item>
-        <item name="colorAccent">@color/black</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/bgtextbox</item>
         <!-- Customize your theme here. -->
     </style>
 

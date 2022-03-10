@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mca.project29.HomeMain
+import com.mca.project29.MainScreens.HomeMain
 import com.mca.project29.R
 import com.mca.project29.databinding.ActivityLoginOptionBinding
 
@@ -76,7 +76,9 @@ class LoginOption : AppCompatActivity() {
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
+            Log.d(TAG, "handleSignInResult: user"+account?.idToken.toString())
         Toast.makeText(applicationContext, "signed in "+account.displayName.toString(), Toast.LENGTH_SHORT).show()
+
             firebaseAuthWithGoogle(account.idToken.toString())
         } catch (e: ApiException) {
              Log.w(TAG, "signInResult:failed code=" + e.statusCode)
@@ -88,7 +90,8 @@ class LoginOption : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
-                    val intent= Intent(applicationContext, HomeMain::class.java)
+                    Log.d(TAG, "firebaseAuthWithGoogle: "+user?.uid.toString())
+                     val intent= Intent(applicationContext, HomeMain::class.java)
                     startActivity(intent)
                 } else {
                     // If sign in fails, display a message to the user.

@@ -1,18 +1,19 @@
 package com.mca.project29.LoginRegister
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
-import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
-import com.mca.project29.HomeMain
+import com.mca.project29.MainScreens.HomeMain
 import com.mca.project29.databinding.ActivityLoginOtpEnterBinding
 
 class LoginOtpEnter : AppCompatActivity() {
@@ -162,7 +163,11 @@ class LoginOtpEnter : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     startActivity(intent)
-                    val intent= Intent(applicationContext,HomeMain::class.java)
+                    val intent= Intent(applicationContext, HomeMain::class.java)
+                    Log.d(TAG, "signInWithPhoneAuthCredential: user "+task.result.user)
+                    Log.d(TAG, "signInWithPhoneAuthCredential: credentials"+task.result.credential)
+                    Log.d(TAG, "signInWithPhoneAuthCredential: additional"+task.result.additionalUserInfo)
+                    Log.d(TAG, "signInWithPhoneAuthCredential: result"+task.result.user?.uid.toString())
                     startActivity(intent)
                     finish()
                 } else {

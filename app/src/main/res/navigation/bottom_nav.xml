@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.mca.project29.HomeFragment"
+        android:name="com.mca.project29.MainScreens.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.mca.project29.SearchFragment"
+        android:name="com.mca.project29.MainScreens.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.mca.project29.cartFragment"
+        android:name="com.mca.project29.MainScreens.cartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.mca.project29.settingFragment"
+        android:name="com.mca.project29.MainScreens.settingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>

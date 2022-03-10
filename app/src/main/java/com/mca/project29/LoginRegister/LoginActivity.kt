@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mca.project29.HomeMain
+import com.mca.project29.MainScreens.HomeMain
 import com.mca.project29.databinding.ActivityLoginBinding
 
 
@@ -39,7 +39,8 @@ class LoginActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                              binding.progressmainactivity.visibility=View.INVISIBLE
                         val user = auth.currentUser
-                     val intent= Intent(applicationContext,HomeMain::class.java)
+                        Log.d(TAG, "onCreate: user uid" +user?.uid.toString())
+                        val intent= Intent(applicationContext, HomeMain::class.java)
                         startActivity(intent)
 
                     } else {

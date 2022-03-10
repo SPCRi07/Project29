@@ -1,6 +1,5 @@
 package com.mca.project29.onscreenBoarding
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -11,24 +10,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.navigation.fragment.findNavController
-import com.mca.project29.LoginRegister.LoginActivity
 import com.mca.project29.LoginRegister.LoginOption
 import com.mca.project29.R
+import com.mca.project29.Sessionmanager
 import com.mca.project29.databinding.ActivitySplashscreenBinding
 
 class SplashScreen : Fragment() {
 
     private var _binding: ActivitySplashscreenBinding? = null
+    private lateinit var sessionmanager: Sessionmanager
 
-
-    private val binding get() = _binding!!
+   private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = ActivitySplashscreenBinding.inflate(inflater, container, false)
         val view = binding.root
+        val context =context
+        sessionmanager = Sessionmanager(context)
         var animation2 = AnimationUtils.loadAnimation(context, R.anim.blink)
         binding.logo.animation=animation2
         var animation = AnimationUtils.loadAnimation(context, R.anim.blink)
@@ -36,7 +37,7 @@ class SplashScreen : Fragment() {
 
         var handler = Handler(Looper.myLooper()!!)
         handler.postDelayed({
-            if(onboardingfinished()){
+            if((sessionmanager.isplashcomplete())){
                         val intent=Intent(context, LoginOption::class.java)
                         startActivity(intent)
             }
@@ -49,10 +50,10 @@ class SplashScreen : Fragment() {
 
         return view
     }
-    private fun onboardingfinished() :Boolean{
-        val sharePref =requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
-        return sharePref.getBoolean("Finished",false)
-    }
+//    private fun onboardingfinished() :Boolean{
+//        val sharePref =requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
+//        return sharePref.getBoolean("Finished",false)
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

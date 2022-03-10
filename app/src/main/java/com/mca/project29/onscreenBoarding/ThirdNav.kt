@@ -9,12 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.mca.project29.LoginRegister.LoginActivity
 import com.mca.project29.LoginRegister.LoginOption
+import com.mca.project29.Sessionmanager
 import com.mca.project29.databinding.FragmentThirdNavBinding
 
 class ThirdNav : Fragment() {
     private var _binding: FragmentThirdNavBinding? = null
 
-
+    private lateinit var  sessionmanager : Sessionmanager
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,21 +24,23 @@ class ThirdNav : Fragment() {
 
         _binding= FragmentThirdNavBinding.inflate(inflater, container, false)
         val view=binding.root
+        sessionmanager=Sessionmanager(context)
+
 
         binding.navthird.setOnClickListener {
             val intent= Intent(context, LoginOption::class.java)
-            onBoardingFinished()
             startActivity(intent)
+            sessionmanager.setsplashcomplete()
         }
         return view
     }
 
-    private fun onBoardingFinished(){
-        val sharePref =requireActivity().getSharedPreferences("onboarding",Context.MODE_PRIVATE)
-        val editor=sharePref.edit()
-        editor.putBoolean("Finished",true)
-        editor.apply()
-    }
+//    private fun onBoardingFinished(){
+//        val sharePref =requireActivity().getSharedPreferences("onboarding",Context.MODE_PRIVATE)
+//        val editor=sharePref.edit()
+//        editor.putBoolean("Finished",true)
+//        editor.apply()
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

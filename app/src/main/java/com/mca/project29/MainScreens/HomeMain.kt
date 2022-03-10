@@ -1,9 +1,10 @@
-package com.mca.project29
+package com.mca.project29.MainScreens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.mca.project29.R
 import com.mca.project29.databinding.ActivityHomeMainBinding
 
 class HomeMain : AppCompatActivity() {

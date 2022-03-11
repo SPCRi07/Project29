@@ -4,7 +4,7 @@ package com.mca.project29
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import com.mca.project29.LoginRegister.LoginActivity
+import com.mca.project29.loginRegister.LoginActivity
 
 
 class Sessionmanager(  // Context
@@ -14,14 +14,15 @@ class Sessionmanager(  // Context
 
 {
     companion object {
+        private const val PREF_NAME = "Pref"
         const val Name = "name"
         const val fName = "fname"
-
+        private const val Uid = "Uid"
         const val ID = "ID"
         const val Image = "image"
 
         // Sharedpref file name
-        private const val PREF_NAME = "Pref"
+
 
         // All Shared Preferences Keys
         private const val IS_LOGIN = "IsLoggedIn"
@@ -73,10 +74,12 @@ class Sessionmanager(  // Context
         editor.commit()
     }
 
-    fun setprofileID(id: String?) {
-        editor.putString(ID, id)
+    fun setUid(id: String?) {
+        editor.putString(Uid, id)
+        editor.putBoolean(IS_LOGIN, true)
         editor.commit()
     }
+
     fun setsplashcomplete() {
         editor.putBoolean(Issplash, true)
         editor.commit()
@@ -84,6 +87,7 @@ class Sessionmanager(  // Context
     fun isplashcomplete(): Boolean {
         return pref.getBoolean(Issplash, false)
     }
+
 
 
     fun setIswaiting() {
@@ -144,7 +148,8 @@ class Sessionmanager(  // Context
             // user email id
             user[KEY_EMAIL] =
                 pref.getString(KEY_EMAIL, null)
-
+            user[KEY_EMAIL] =
+                pref.getString(KEY_EMAIL, null)
             user[ID] = pref.getString(ID, null)
             user[Image] =
                 pref.getString(Image, null)
@@ -152,6 +157,14 @@ class Sessionmanager(  // Context
             // return user
             return user
         }
+
+    val getUid: HashMap<String, String?>
+    get() {
+
+        val user = HashMap<String, String?>()
+        user[Uid]=pref.getString(Uid,null)
+        return user
+    }
 
     /**
      * Signup Parts
@@ -163,7 +176,6 @@ class Sessionmanager(  // Context
 
     ) {
         editor.putString(Name, name)
-        editor.putString(KEY_NAME, name)
         editor.putString(fName, father)
 
         editor.commit()

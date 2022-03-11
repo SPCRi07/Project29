@@ -10,10 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.navigation.fragment.findNavController
-import com.mca.project29.LoginRegister.LoginOption
+import com.mca.project29.loginRegister.LoginOption
 import com.mca.project29.R
 import com.mca.project29.Sessionmanager
 import com.mca.project29.databinding.ActivitySplashscreenBinding
+import com.mca.project29.mainScreens.HomeMain
 
 class SplashScreen : Fragment() {
 
@@ -37,9 +38,15 @@ class SplashScreen : Fragment() {
 
         var handler = Handler(Looper.myLooper()!!)
         handler.postDelayed({
-            if((sessionmanager.isplashcomplete())){
-                        val intent=Intent(context, LoginOption::class.java)
-                        startActivity(intent)
+
+            if(sessionmanager.isLoggedIn)
+            {
+                val intent=Intent(context, HomeMain::class.java)
+                startActivity(intent)
+            }
+           else if((sessionmanager.isplashcomplete())){
+                val intent=Intent(context, LoginOption::class.java)
+                startActivity(intent)
             }
             else
             {

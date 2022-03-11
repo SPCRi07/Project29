@@ -1,4 +1,4 @@
-package com.mca.project29.LoginRegister
+package com.mca.project29.loginRegister
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -13,18 +13,21 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mca.project29.MainScreens.HomeMain
+import com.mca.project29.mainScreens.HomeMain
 import com.mca.project29.R
+import com.mca.project29.Sessionmanager
 import com.mca.project29.databinding.ActivityLoginOptionBinding
 
 
 class LoginOption : AppCompatActivity() {
     val RC_SIGN_IN=1
     var mGoogleSignInClient: GoogleSignInClient? = null
+    private lateinit var sessionmanager: Sessionmanager
     private lateinit var binding: ActivityLoginOptionBinding
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +36,7 @@ class LoginOption : AppCompatActivity() {
         val view=binding.root
         setContentView(view)
         auth=Firebase.auth
+        sessionmanager= Sessionmanager(applicationContext)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -55,7 +59,12 @@ class LoginOption : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        var currentUser = auth.currentUser
+        val currentUser = auth.currentUser
+        if(currentUser!=null){
+            Snackbar.make(binding.root,"Logged in "+currentUser.displayName.toString(),Snackbar.LENGTH_LONG).show()
+            val intent= Intent(applicationContext, HomeMain::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -90,7 +99,8 @@ class LoginOption : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
-                    Log.d(TAG, "firebaseAuthWithGoogle: "+user?.uid.toString())
+                    sessionmanager.setUid(user?.uid.toString())
+               //     Log.d(TAG, "firebaseAuthWithGoogle: "+user?.uid.toString())
                      val intent= Intent(applicationContext, HomeMain::class.java)
                     startActivity(intent)
                 } else {

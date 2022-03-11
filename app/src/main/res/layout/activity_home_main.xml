@@ -6,19 +6,20 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/white"
     android:background="@color/white"
-    tools:context=".MainScreens.HomeMain">
+    tools:context=".mainScreens.HomeMain">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bgtextbox"
-       app:menu="@menu/bottommenu"
+        android:background="@color/accent"
+        app:menu="@menu/bottommenu"
         app:itemTextColor="@color/black"
         app:elevation="15dp"
         app:itemRippleColor="@color/softgreen"
         android:layout_margin="10dp"
         app:itemIconTint="@color/black"
+        android:hapticFeedbackEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -35,4 +36,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/bottom_nav"
         tools:ignore="FragmentTagUsage" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

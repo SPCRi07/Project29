@@ -1,4 +1,4 @@
-package com.mca.project29.MainScreens
+package com.mca.project29.mainScreens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

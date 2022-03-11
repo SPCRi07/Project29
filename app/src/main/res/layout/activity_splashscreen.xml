@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".onscreenBoarding.SplashScreen"
     android:theme="@style/Theme.Material3.Light.NoActionBar"
-    android:background="@color/bgtextbox"
+    android:background="@color/accent"
    >
 
 

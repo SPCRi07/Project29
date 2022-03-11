@@ -1,31 +1,33 @@
-package com.mca.project29.LoginRegister
+package com.mca.project29.loginRegister
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
-import com.mca.project29.MainScreens.HomeMain
+import com.mca.project29.mainScreens.HomeMain
+import com.mca.project29.Sessionmanager
 import com.mca.project29.databinding.ActivityLoginOtpEnterBinding
 
 class LoginOtpEnter : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginOtpEnterBinding
     private lateinit var mauth : FirebaseAuth
+    private lateinit var sessionmanager: Sessionmanager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityLoginOtpEnterBinding.inflate(layoutInflater)
         val view=binding.root
         setContentView(view)
+
         mauth= FirebaseAuth.getInstance()
+        sessionmanager= Sessionmanager(applicationContext)
         var otp=""
         val verid= intent.extras?.get("verificationId")
         binding.verifyBtn.setOnClickListener {
@@ -162,12 +164,13 @@ class LoginOtpEnter : AppCompatActivity() {
         mauth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(intent)
+                   // startActivity(intent)
                     val intent= Intent(applicationContext, HomeMain::class.java)
-                    Log.d(TAG, "signInWithPhoneAuthCredential: user "+task.result.user)
-                    Log.d(TAG, "signInWithPhoneAuthCredential: credentials"+task.result.credential)
-                    Log.d(TAG, "signInWithPhoneAuthCredential: additional"+task.result.additionalUserInfo)
-                    Log.d(TAG, "signInWithPhoneAuthCredential: result"+task.result.user?.uid.toString())
+                    //Log.d(TAG, "signInWithPhoneAuthCredential: user "+task.result.user)
+                   // Log.d(TAG, "signInWithPhoneAuthCredential: credentials"+task.result.credential)
+                 //   Log.d(TAG, "signInWithPhoneAuthCredential: additional"+task.result.additionalUserInfo)
+               //     Log.d(TAG, "signInWithPhoneAuthCredential: result"+task.result.user?.uid.toString())
+                    sessionmanager.setUid(task.result.user?.uid.toString())
                     startActivity(intent)
                     finish()
                 } else {

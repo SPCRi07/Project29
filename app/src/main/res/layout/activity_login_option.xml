@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".LoginRegister.LoginOption">
+    tools:context=".loginRegister.LoginOption">
 
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -35,7 +35,7 @@
         android:textColor="@color/black"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/bgtextbox"
+        app:backgroundTint="@color/accent"
         app:backgroundTintMode="src_over"
         app:cornerRadius="20dp"
         app:elevation="20sp"
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="74dp"
-        android:background="@color/bgtextbox"
+        android:background="@color/accent"
         android:elevation="20dp"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,7 @@
         android:textColor="@color/black"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/bgtextbox"
+        app:backgroundTint="@color/accent"
         app:backgroundTintMode="src_over"
         app:cornerRadius="20dp"
         app:elevation="20sp"

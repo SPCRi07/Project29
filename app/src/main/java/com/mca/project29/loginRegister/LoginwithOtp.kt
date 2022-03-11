@@ -1,4 +1,4 @@
-package com.mca.project29.LoginRegister
+package com.mca.project29.loginRegister
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

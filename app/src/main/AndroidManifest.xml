@@ -13,20 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project29">
         <activity
-            android:name=".LoginRegister.LoginOption"
+            android:name=".loginRegister.LoginOption"
             android:exported="true" >
 
 
         </activity>
         <activity
-            android:name=".MainScreens.HomeMain"
+            android:name=".mainScreens.HomeMain"
             android:exported="true">
            </activity>
         <activity
-            android:name=".LoginRegister.LoginOtpEnter"
+            android:name=".loginRegister.LoginOtpEnter"
             android:exported="false" />
         <activity
-            android:name=".LoginRegister.LoginwithOtp"
+            android:name=".loginRegister.LoginwithOtp"
             android:exported="false" />
         <activity
             android:name=".onscreenBoarding.FirstActivity"
@@ -40,7 +40,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".LoginRegister.LoginActivity" />
+        <activity android:name=".loginRegister.LoginActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

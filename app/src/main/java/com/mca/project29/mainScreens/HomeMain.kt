@@ -13,7 +13,7 @@ class HomeMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding= ActivityHomeMainBinding.inflate(layoutInflater)
-        var view=binding.root
+        val view=binding.root
         setContentView(view)
 
         val navController= findNavController(R.id.mainfragment)

@@ -1,15 +1,23 @@
 package com.mca.project29.mainScreens.homeFragment
 
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
+import com.mca.project29.GlideApp
 import com.mca.project29.R
+import com.squareup.picasso.Picasso
 
-class homecardrecyclerview(context: Context, arrayList: Array<String>, arrayimage: Array<Int>):
+class homecardrecyclerview(context: Context, arrayList: MutableList<String>, arrayimage: MutableList<String>):
     RecyclerView.Adapter<homecardrecyclerview.ViewHolder>()
 {
     val con =context
@@ -24,7 +32,13 @@ class homecardrecyclerview(context: Context, arrayList: Array<String>, arrayimag
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.img.setImageResource(arimage[position])
+
+        //Picasso.get().load(arimage[position]).into(holder.img)
+     //  val abc=FirebaseStorage.getInstance().getReference().child(arimage[position])
+        Log.d(TAG, "onBindViewHolder: "+arimage[position])
+        GlideApp.with(con)
+            .load(arimage[position])
+            .into(holder.img)
         holder.txt.text=arstring[position]
     }
 
@@ -35,6 +49,7 @@ class homecardrecyclerview(context: Context, arrayList: Array<String>, arrayimag
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val img=view.findViewById<ImageView>(R.id.homecardimage)
         val txt=view.findViewById<TextView>(R.id.homecardtext)
+
     }
 
 }

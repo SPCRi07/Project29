@@ -33,7 +33,7 @@ class myPagerAdapterHome(context: Context, images: MutableList<String>) :
         Picasso.get()
             .load(img[position])
              .into(imageView)
-        Log.d(TAG, "instantiateItem: "+img[position])
+       // Log.d(TAG, "instantiateItem: "+img[position])
         container.addView(itemView)
 
         imageView.setOnClickListener {

@@ -2,23 +2,31 @@ package com.mca.project29.mainScreens.homeFragment
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
-import com.mca.project29.R
 import com.mca.project29.databinding.FragmentHomeBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import java.lang.Exception
+import java.util.Collections.list
+
 
 class HomeFragment : Fragment() {
+
+
+
     private var _binding: FragmentHomeBinding?= null
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -28,12 +36,7 @@ class HomeFragment : Fragment() {
         _binding= FragmentHomeBinding.inflate(inflater, container, false)
         val view=binding.root
         getfiles()
-        val Names=arrayOf("Banana","Grape","Guava","Mango")
-        val ImageIds=arrayOf(R.drawable.ic_cancel,R.drawable.addtocart,R.drawable.arrow_forward_24,R.drawable.ic_check)
-
-
-       val adapter=homecardrecyclerview(requireContext(),Names,ImageIds)
-        binding.homecardlist.adapter=adapter
+        gettabs()
 
 
         return view
@@ -43,11 +46,47 @@ class HomeFragment : Fragment() {
         _binding=null
     }
 
+    private fun gettabs() = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val Names = mutableListOf<String>()
+            val ImageIds = mutableListOf<String>()
+            val db = FirebaseFirestore.getInstance()
+
+           val data= db.collection("homescreentabs")
+                .get()
+                .await()
+                    for(item in data.documents){
+                        val i= item.getString("name").toString()
+                        val i2= item.getDocumentReference("image")?.path
+                        Names.add(i)
+                        val abc= FirebaseStorage.getInstance().getReferenceFromUrl("$i2").downloadUrl.await()
+                        Log.d(TAG, "gettabs: $abc")
+                        //Toast.makeText(context, "$i", Toast.LENGTH_SHORT).show()
+                        ImageIds.add(abc.toString())
+                    }
+
+
+
+            withContext(Dispatchers.Main){
+
+              //  val a= Firebase.storage.getReferenceFromUrl(ImageIds[0].toString())
+             //   Toast.makeText(context, "$a", Toast.LENGTH_SHORT).show()
+              //  Log.d(TAG, "gettabs2: $a")
+                   val adapter=homecardrecyclerview(requireContext(),Names,ImageIds)
+                    binding.homecardlist.adapter=adapter
+
+            }
+        }
+
+        catch (e:Exception){
+            Log.d(TAG, "gettabserror: "+e.message)
+        }
+    }
+
     private fun getfiles() = CoroutineScope(Dispatchers.IO).launch {
 
         try {
             val storageReference = Firebase.storage.reference
-
             val images=storageReference.child("screenimages/").listAll().await()
             val imageurls= mutableListOf<String>()
             for(image in images.items){
@@ -57,6 +96,7 @@ class HomeFragment : Fragment() {
             withContext(Dispatchers.Main){
                 val imageadapter =myPagerAdapterHome(requireContext(),imageurls)
                 binding.screenlist.adapter=imageadapter
+                binding.hometablist.setupWithViewPager(binding.screenlist,true)
             }
 
         }

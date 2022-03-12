@@ -18,6 +18,6 @@
     <string name="phone_number_login">Phone Number Login</string>
     <string name="custom_email_login">Custom Email Login</string>
     <string name="delivering_to">Delivering to</string>
-    <string name="i_need">I Need..</string>
+    <string name="i_need">What are you Searching for</string>
 
 </resources>

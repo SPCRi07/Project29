@@ -14,10 +14,10 @@ import com.mca.project29.R
 import com.squareup.picasso.Picasso
 
 
-class myPagerAdapterHome(context: Context, images: ArrayList<String>) :
+class myPagerAdapterHome(context: Context, images: MutableList<String>) :
     PagerAdapter() {
     var con: Context = context
-    var img: ArrayList<String> = images
+    var img: MutableList<String> = images
     var layoutInflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     override fun getCount(): Int {
         return img.size

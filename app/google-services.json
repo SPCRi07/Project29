@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "390867311402-a6pbe20456q3jk4sgrqai50sb6qj4772.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mca.project29",
+            "certificate_hash": "b251ff8803d506f5f42ec52a6306f53875baff88"
+          }
+        },
+        {
           "client_id": "390867311402-gelj7c78irjism2lfik1vcehqmq2utn0.apps.googleusercontent.com",
           "client_type": 3
         }

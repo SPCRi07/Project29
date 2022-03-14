@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
-    id 'kotlin-kapt'
 }
 
 android {
@@ -88,7 +87,4 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
 
-    implementation 'com.github.bumptech.glide:glide:4.13.0'
-// If you're using Kotlin (and therefore, kapt), use kapt instead of annotationProcessor
-    kapt 'com.github.bumptech.glide:compiler:4.13.0'
 }

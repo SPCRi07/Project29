@@ -57,21 +57,11 @@ class HomeFragment : Fragment() {
                 .await()
                     for(item in data.documents){
                         val i= item.getString("name").toString()
-                        val i2= item.getDocumentReference("image")?.path
+                        val i2= item.getString("image")
                         Names.add(i)
-                        val abc= FirebaseStorage.getInstance().getReferenceFromUrl("$i2").downloadUrl.await()
-                        Log.d(TAG, "gettabs: $abc")
-                        //Toast.makeText(context, "$i", Toast.LENGTH_SHORT).show()
-                        ImageIds.add(abc.toString())
+                        ImageIds.add(i2.toString())
                     }
-
-
-
             withContext(Dispatchers.Main){
-
-              //  val a= Firebase.storage.getReferenceFromUrl(ImageIds[0].toString())
-             //   Toast.makeText(context, "$a", Toast.LENGTH_SHORT).show()
-              //  Log.d(TAG, "gettabs2: $a")
                    val adapter=homecardrecyclerview(requireContext(),Names,ImageIds)
                     binding.homecardlist.adapter=adapter
 
@@ -104,7 +94,7 @@ class HomeFragment : Fragment() {
         catch (e:Exception)
         {
             withContext(Dispatchers.Main) {
-                Log.d(TAG, "getfiles: " + e.message)
+                Log.d(TAG, "getfiles Exception: " + e.message)
             }
         }
     }

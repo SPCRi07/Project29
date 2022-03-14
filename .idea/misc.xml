@@ -5,19 +5,26 @@
       <map>
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.235" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/drawable/arrow_forward_24.xml" value="0.3755" />
+        <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/drawable/horizontalline.xml" value="0.1535" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/drawable/ic_settings.xml" value="0.157" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/drawable/ic_shield.xml" value="0.157" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/font/almendra.xml" value="0.32827004219409284" />
+        <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout-v23/productlistcard.xml" value="0.375" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/Splashscreen.xml" value="0.27008547008547007" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/activity_navigation.xml" value="0.3076923076923077" />
+        <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/activity_product_page.xml" value="0.25" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/activity_splashscreen.xml" value="0.22" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/fragment_first_nav.xml" value="0.20341880341880342" />
+        <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/fragment_home.xml" value="0.24230072463768115" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/fragment_sec_nav.xml" value="0.3076923076923077" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/fragment_third_nav.xml" value="0.3076923076923077" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/fragment_viewpager.xml" value="0.25" />
+        <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/homecardlist.xml" value="0.24230072463768115" />
+        <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/productlistcard.xml" value="0.2833333333333333" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/splashscreen.xml" value="0.1" />
+        <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/viewpagerhomesceenitem.xml" value="0.24230072463768115" />
         <entry key="app/src/main/res/drawable/default_dot.xml" value="0.187" />
         <entry key="app/src/main/res/drawable/selected_dot.xml" value="0.187" />
         <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.187" />

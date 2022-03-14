@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:id="@+id/productcard"
+    app:cardCornerRadius="10dp"
+    android:layout_marginBottom="15dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginStart="10dp"
+    android:background="@color/accent"
+    app:rippleColor="@color/softgreen"
+    app:cardElevation="20dp"
+    >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/productimage"
+                    android:layout_width="140sp"
+                    android:layout_height="140sp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:contentDescription="@string/product"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/softgreen" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/namecarttext"
+                    style="@style/cardtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="28dp"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/productimage"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pricetext"
+                    style="@style/cardtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/price"
+                    app:layout_constraintStart_toEndOf="@+id/productimage"
+                    app:layout_constraintTop_toBottomOf="@+id/namecarttext" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/canprice"
+                    style="@style/cardtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/price"
+                    app:layout_constraintStart_toEndOf="@+id/pricetext"
+                    app:layout_constraintTop_toBottomOf="@+id/namecarttext" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/canpricenow"
+                    style="@style/cardtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/price"
+                    android:textColor="@color/red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.235"
+                    app:layout_constraintStart_toEndOf="@+id/canprice"
+                    app:layout_constraintTop_toBottomOf="@+id/namecarttext" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pricediscount"
+                    style="@style/cardtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/price"
+                    android:textColor="@color/red"
+                    app:layout_constraintStart_toEndOf="@+id/productimage"
+                    app:layout_constraintTop_toBottomOf="@+id/pricetext" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/productrating"
+                    style="@style/cardtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableStart="@drawable/ic_baseline_star_24"
+                    android:textColor="@color/red"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/pricediscount"
+                    app:layout_constraintTop_toBottomOf="@+id/pricetext"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <Button
+                    android:id="@+id/addtocart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:backgroundTint="@color/softgreen"
+                    android:text="@string/add_to_cart"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/productrating"
+                    app:layout_constraintTop_toBottomOf="@+id/canprice"
+                    app:layout_constraintVertical_bias="0.25" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/accent"
+    android:background="@color/whitesolid"
     tools:context=".mainScreens.homeFragment.HomeFragment">
 
     <com.google.android.material.textview.MaterialTextView
@@ -38,8 +38,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:text="@string/Author"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:shadowColor="@color/white"
+        android:textAppearance="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
 
@@ -48,8 +51,11 @@
         android:id="@+id/delivermsg"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:layout_width="wrap_content"
+        android:fontFamily="@font/be_vietnam_light"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:background="@drawable/horizontalline"
         android:layout_marginStart="8dp"
         android:layout_marginTop="18dp"
         android:text="@string/delivering_to"
@@ -57,16 +63,18 @@
         app:layout_constraintTop_toBottomOf="@+id/welcomemsg" />
 
 
+
         <LinearLayout
             android:id="@+id/homescroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/whitesolid"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/delivermsg"
-            tools:ignore="ScrollViewCount">
+           android:paddingBottom="200dp"
+            >
 
 
             <androidx.viewpager.widget.ViewPager
@@ -79,18 +87,21 @@
                 app:layout_constraintTop_toBottomOf="@+id/homescroll"
                 app:layout_constraintVertical_bias="1.0">
 
-
             </androidx.viewpager.widget.ViewPager>
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/hometablist"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                app:tabBackground="@drawable/tab_selector"
-                app:tabGravity="center"
-                android:scrollbars="none"
-                android:background="@color/white"
-                app:tabIndicatorHeight="3sp" />
-
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dots_indicator_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dotsColor="@color/white"
+                app:dotsCornerRadius="8dp"
+                app:dotsClickable="true"
+                app:dotsSize="8dp"
+                app:dotsSpacing="4dp"
+                app:dotsWidthFactor="2.5"
+                android:layout_gravity="center"
+                app:selectedDotColor="@color/black"
+                app:progressMode="true"
+                />
             <com.google.android.material.textview.MaterialTextView
             android:id="@+id/hometxt"
             style="@style/normaltext"
@@ -104,10 +115,9 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homecardlist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="160dp"
+    android:id="@+id/homecard"
+    app:cardCornerRadius="20dp"
+    android:layout_marginBottom="15dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginStart="10dp"
+    android:background="@color/accent"
+    app:rippleColor="@color/softgreen"
+    app:cardElevation="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_height="150sp"
-        android:layout_width="150sp"
-        android:id="@+id/homecard"
-        android:layout_margin="20dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="20dp"
-        >
-
-        <ImageView
-            android:layout_margin="10dp"
-            android:layout_width="100sp"
-            android:layout_height="100sp"
+    >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+                android:orientation="vertical">
+        <com.google.android.material.imageview.ShapeableImageView
+                android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="120sp"
+            android:layout_height="120sp"
+            app:strokeColor="@color/softgreen"
             android:layout_gravity="center"
             android:id="@+id/homecardimage"
-            android:layout_marginBottom="20dp"
-            tools:ignore="ContentDescription" />
-        <TextView
-            style="@style/normaltext"
-            android:layout_width="100sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:gravity="center"
-            android:layout_marginTop="20sp"
-            android:id="@+id/homecardtext"
-            android:textAlignment="center"/>
+            android:contentDescription="@string/product" />
 
-    </com.google.android.material.card.MaterialCardView>
-
-
-</RelativeLayout>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/homecardtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    style="@style/cardtext"
+                  />
+        </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

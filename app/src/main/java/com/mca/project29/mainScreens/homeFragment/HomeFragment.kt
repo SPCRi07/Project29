@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
@@ -37,10 +38,9 @@ class HomeFragment : Fragment() {
         val view=binding.root
         getfiles()
         gettabs()
-
-
         return view
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding=null
@@ -86,7 +86,7 @@ class HomeFragment : Fragment() {
             withContext(Dispatchers.Main){
                 val imageadapter =myPagerAdapterHome(requireContext(),imageurls)
                 binding.screenlist.adapter=imageadapter
-                binding.hometablist.setupWithViewPager(binding.screenlist,true)
+                    binding.dotsIndicatorHome.setViewPager(binding.screenlist)
             }
 
         }
@@ -98,5 +98,8 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
+
+
 
 }

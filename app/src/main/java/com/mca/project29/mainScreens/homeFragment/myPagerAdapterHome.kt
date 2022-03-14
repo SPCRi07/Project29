@@ -38,8 +38,6 @@ class myPagerAdapterHome(context: Context, images: MutableList<String>) :
 
         imageView.setOnClickListener {
 
-            Toast.makeText(con, "you clicked image " + (position + 1), Toast.LENGTH_LONG)
-                .show()
 
         }
         return itemView

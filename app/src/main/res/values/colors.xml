@@ -8,4 +8,6 @@
     <color name="accent">#F4EFEF</color>
     <color name="softgreen">#D5EBDA</color>
     <color name="primarycolor">#fff</color>
+    <color name="whitesolid">#f0f1f6</color>
+    <color name="red">#FB0000</color>
 </resources>

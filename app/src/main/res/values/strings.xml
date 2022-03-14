@@ -19,5 +19,8 @@
     <string name="custom_email_login">Custom Email Login</string>
     <string name="delivering_to">Delivering to</string>
     <string name="i_need">What are you Searching for</string>
+    <string name="product">Product</string>
+    <string name="price">Price</string>
+    <string name="add_to_cart">Add to cart</string>
 
 </resources>

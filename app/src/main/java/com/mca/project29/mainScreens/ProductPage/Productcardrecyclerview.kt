@@ -1,16 +1,13 @@
-package com.mca.project29
+package com.mca.project29.mainScreens.ProductPage
 
 import android.content.Context
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textview.MaterialTextView
 import com.mca.project29.R
 import com.mca.project29.dataModel.Product
@@ -29,15 +26,17 @@ class productcardrecyclerview(context: Context,arrayList: ArrayList<Product>):
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val dis=productlist[position].discount + "%";
       holder.name.setText(productlist.get(position).name)
-        holder.priceclose.setText(productlist[position].priceclosed)
-        holder.discount.setText(productlist[position].discount)
-        holder.rating.setText(productlist[position].rating)
+        holder.priceclose.text=(productlist[position].priceclosed)
+        holder.discount.text=(dis)
+        holder.rating.text=(productlist[position].rating)
         Picasso.get().load(productlist[position].image).into(holder.image)
-        holder.price.setText(productlist[position].price)
+        holder.price.text=(productlist[position].price)
        holder.card.setOnClickListener {
 
         }
+        holder.priceclose.paintFlags = holder.priceclose.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 
     }
 
@@ -52,6 +51,7 @@ class productcardrecyclerview(context: Context,arrayList: ArrayList<Product>):
         val rating=view.findViewById<MaterialTextView>(R.id.productrating)
         val image=view.findViewById<ImageView>(R.id.productimage)
         val card=view.findViewById<CardView>(R.id.productcard)
+
     }
 
 

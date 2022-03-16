@@ -4,9 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="200dp"
+    android:paddingBottom="70dp"
     android:orientation="vertical"
-    tools:context=".mainScreens.productPage">
+    android:background="@color/whitesolid"
+    tools:context=".mainScreens.ProductPage.Productpagefragment">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:gravity="center"
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:theme="@style/appnametext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:gravity="center"
+        android:id="@+id/productnametext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:fontFamily="@font/alegreya_sans_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productrecyclerview"

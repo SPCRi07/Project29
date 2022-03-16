@@ -2,18 +2,13 @@ package com.mca.project29.mainScreens.homeFragment
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import com.mca.project29.databinding.FragmentHomeBinding
 import kotlinx.coroutines.CoroutineScope
@@ -21,11 +16,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import java.util.Collections.list
-
 
 class HomeFragment : Fragment() {
-
 
 
     private var _binding: FragmentHomeBinding?= null
@@ -38,6 +30,7 @@ class HomeFragment : Fragment() {
         val view=binding.root
         getfiles()
         gettabs()
+
         return view
     }
 
@@ -51,7 +44,7 @@ class HomeFragment : Fragment() {
             val Names = mutableListOf<String>()
             val ImageIds = mutableListOf<String>()
             val db = FirebaseFirestore.getInstance()
-
+            val fg=parentFragmentManager
            val data= db.collection("homescreentabs")
                 .get()
                 .await()
@@ -62,7 +55,7 @@ class HomeFragment : Fragment() {
                         ImageIds.add(i2.toString())
                     }
             withContext(Dispatchers.Main){
-                   val adapter=homecardrecyclerview(requireContext(),Names,ImageIds)
+                   val adapter=homecardrecyclerview(requireContext(),Names,ImageIds,fg)
                     binding.homecardlist.adapter=adapter
 
             }

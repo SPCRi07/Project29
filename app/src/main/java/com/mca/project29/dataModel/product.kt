@@ -5,6 +5,7 @@ public data class Product(
     val image: String?=null,
     @field:JvmField
     val isVeg: Boolean? = null,
+    val keywords:List<String>? =null,
     val name: String? = null,
     val price: String? = null,
     val priceclosed: String? = null,

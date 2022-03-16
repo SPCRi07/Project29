@@ -76,7 +76,7 @@ class Productpagefragment : Fragment() {
             withContext(Dispatchers.Main){
 
                 val adapter= productcardrecyclerview(requireContext(),productar)
-                binding.productrecyclerview.adapter=adapter
+                 binding.productrecyclerview.adapter=adapter
             }
         }
         catch (e: Exception)

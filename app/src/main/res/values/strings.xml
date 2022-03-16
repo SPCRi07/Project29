@@ -23,5 +23,6 @@
     <string name="price">Price</string>
     <string name="add_to_cart">Add to cart</string>
     <string name="discount_upto">discount upto</string>
+    <string name="search_product">Search Product</string>
 
 </resources>

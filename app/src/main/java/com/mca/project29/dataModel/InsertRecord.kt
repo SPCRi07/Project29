@@ -1,8 +1,18 @@
 package com.mca.project29.dataModel
 
+import android.content.ContentValues
+import android.util.Log
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
 import com.mca.project29.dataModel.Product
+import com.mca.project29.mainScreens.ProductPage.productcardrecyclerview
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class InsertRecord {
 
@@ -24,5 +34,48 @@ class InsertRecord {
 //    db.collection("Data").document("Products").collection("Dryfruits").document(p5.name.toString()).set(p5)
 //    db.collection("Data").document("Products").collection("Dryfruits").document(p6.name.toString()).set(p6)
 //    db.collection("Data").document("Products").collection("Dryfruits").document(p7.name.toString()).set(p7)
+//
+//    private fun search(name:String) = CoroutineScope(Dispatchers.IO).launch {
+//        try {
+//            db = FirebaseFirestore.getInstance()
+//
+//            val productar :ArrayList<Product> = ArrayList()
+//            val n="snacks"
+//
+//            val doc= db!!.collection("Data").document("Products").collection(n).get().await()
+//
+//            for (i in doc)
+//            {
+//                update(i.getField<String>("name")!!,n)
+//            }
+//
+//
+//            withContext(Dispatchers.Main){
+//
+//                val adapter= productcardrecyclerview(requireContext(),productar)
+//                //    binding.searchproductrecyclerview.adapter=adapter
+//            }
+//        }
+//        catch (e: Exception)
+//        {
+//            Log.d(ContentValues.TAG, "search Exception:$e ")
+//        }
+//    }
+//    fun generateKeywords(name: String): List<String> {
+//        val keywords = mutableListOf<String>()
+//        for (i in 0 until name.length) {
+//            for (j in (i+1)..name.length) {
+//                keywords.add(name.slice(i until j))
+//            }
+//        }
+//        return keywords
+//    }
+//
+//    suspend fun update(name:String,sname:String){
+//        val data=generateKeywords(name)
+//        val doc=db!!.collection("Data").document("Products").collection(sname).document(name).update("keywords",data).await()
+//
+//
+//    }
 
 }

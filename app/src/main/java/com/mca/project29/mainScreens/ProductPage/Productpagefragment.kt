@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import com.mca.project29.dataModel.Product
+import com.mca.project29.dataModel.newProduct
 import com.mca.project29.databinding.ActivityProductPageBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -61,13 +62,13 @@ class Productpagefragment : Fragment() {
     private fun gettabs(name:String) = CoroutineScope(Dispatchers.IO).launch {
         try {
             val db = FirebaseFirestore.getInstance()
-            val productar :ArrayList<Product> = ArrayList()
-            val data= db.collection("Data").document("Products").collection(name)
+            val productar :ArrayList<newProduct> = ArrayList()
+            val data= db.collection("Products").whereEqualTo("type",name)
                 .get()
                 .await()
 
             for(item in data.documents){
-                val a= item.toObject<Product>()
+                val a= item.toObject<newProduct>()
                 if (a != null) {
                     productar.add(a)
                 }

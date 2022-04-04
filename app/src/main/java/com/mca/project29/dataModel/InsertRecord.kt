@@ -78,4 +78,176 @@ class InsertRecord {
 //
 //    }
 
+//    private fun getresult(name:String) = CoroutineScope(Dispatchers.IO).launch {
+//        try {
+//            val db = FirebaseFirestore.getInstance()
+//            val productar :ArrayList<Product> = ArrayList()
+//            val k=db.collection("Data").document("Products").get().await()
+//
+//
+//            for(item in k){
+//
+//                val a= item.toObject<Product>()
+//                Log.d(TAG, "getresult in data: "+ item.toString())
+//
+//                if (a != null) {
+//                 //   productar.add(a)
+//                      Log.d(TAG, "search list: ${a}")
+//
+//                }
+//                //   Log.d(ContentValues.TAG, "product list: ${a.toString()}")
+//            }
+//
+//            withContext(Dispatchers.Main){
+//                val adapter= productcardrecyclerview(requireContext(),productar)
+//          //      binding.searchproductrecyclerview.adapter=adapter
+//            }
+//
+//        }
+//        catch (e: Exception)
+//        {
+//            Log.d(TAG, "search Exception:$e ")
+//        }
+//    }
+
+
+//    private fun getdata() = CoroutineScope(Dispatchers.IO).launch {
+//        try {
+//            val Names = mutableListOf<String>()
+//            val ImageIds = mutableListOf<String>()
+//            val db = FirebaseFirestore.getInstance()
+//            val data= db.collection("Data")
+//                .document("Products")
+//                .collection("snacks")
+//                .get()
+//                .await()
+//            val list = mutableListOf<newProduct>()
+//            var stars: MutableMap<String, Boolean> = HashMap()
+//
+//            for(item in data.documents){
+//                val a= item.toObject<newProduct>()
+//                a?.type="snacks"
+//                if (a != null) {
+//                    list.add(a)
+//
+//                        db.collection("Products").add(a).addOnSuccessListener {
+//                            Log.d(TAG, "data result: + it.result.toString()")
+//                            Log.d(TAG, "data exception:  + it.exception.toString()")
+//
+//
+//                    }
+//                };
+//
+//               database = Firebase.database.reference
+//                database.child("Products").setValue(a).addOnCompleteListener {
+//                    Log.d(TAG, "data result: + it.result.toString()")
+//                    Log.d(TAG, "data exception:  + it.exception.toString()")
+//
+//
+//                }
+//
+//
+//            }
+//            withContext(Dispatchers.Main){
+//            }
+//        }
+//
+//        catch (e:Exception){
+//            Log.d(TAG, "gettabserror: "+e.message)
+//        }
+//    }
+
+
+//   // private fun search(name:String) = CoroutineScope(Dispatchers.IO).launch {
+//        try {
+//            val db = FirebaseFirestore.getInstance()
+//            val productar :ArrayList<Product> = ArrayList()
+//         val bev= db.collection("Data").document("Products").collection("Beverages").whereArrayContains("keywords",name.trim()).get().await()
+//            val cookies= db.collection("Data").document("Products").collection("Cookies").whereArrayContains("keywords",name.trim()).get().await()
+//            val Dryfruits= db.collection("Data").document("Products").collection("Dryfruits").whereArrayContains("keywords",name.trim()).get().await()
+//            val Flour= db.collection("Data").document("Products").collection("Flour").whereArrayContains("keywords",name.trim()).get().await()
+//            val Fruits= db.collection("Data").document("Products").collection("Fruits").whereArrayContains("keywords",name.trim()).get().await()
+//            val Masala= db.collection("Data").document("Products").collection("Masala").whereArrayContains("keywords",name.trim()).get().await()
+//            val Vegetables= db.collection("Data").document("Products").collection("Vegetables").whereArrayContains("keywords",name.trim()).get().await()
+//            val snacks= db.collection("Data").document("Products").collection("snacks").whereArrayContains("keywords",name.trim()).get().await()
+
+//            if (bev.documents.size > 0) {
+//                  for (item in bev.documents) {
+//                      val a = item.toObject<Product>()
+//                      if (a != null) {
+//                          productar.add(a)
+//                      }
+//                  }
+//              }
+//            if (Dryfruits.documents.size > 0) {
+//                for (item in Dryfruits.documents) {
+//                    val a = item.toObject<Product>()
+//                    if (a != null) {
+//                        productar.add(a)
+//                    }
+//                }
+//            }
+//            if (Flour.documents.size > 0) {
+//                for (item in Flour.documents) {
+//                    val a = item.toObject<Product>()
+//                    if (a != null) {
+//                        productar.add(a)
+//                    }
+//                }
+//            }
+//            if (cookies.documents.size > 0) {
+//                for (item in cookies.documents) {
+//                    val a = item.toObject<Product>()
+//                    if (a != null) {
+//                        productar.add(a)
+//                    }
+//                }
+//            }
+//            if (Fruits.documents.size > 0) {
+//                for (item in Fruits.documents) {
+//                    val a = item.toObject<Product>()
+//                    if (a != null) {
+//                        productar.add(a)
+//                    }
+//                }
+//            }
+//            if (Masala.documents.size > 0) {
+//                for (item in Masala.documents) {
+//                    val a = item.toObject<Product>()
+//                    if (a != null) {
+//                        productar.add(a)
+//                    }
+//                }
+//            }
+//            if (Vegetables.documents.size > 0) {
+//                for (item in Vegetables.documents) {
+//                    val a = item.toObject<Product>()
+//                    if (a != null) {
+//                        productar.add(a)
+//                    }
+//                }
+//            }
+//            if (snacks.documents.size > 0) {
+//                for (item in snacks.documents) {
+//                    val a = item.toObject<Product>()
+//                    if (a != null) {
+//                        productar.add(a)
+//                    }
+//                }
+//            }
+//
+//
+//            Log.d(TAG, "product fetch from all : "+ productar.size)
+//
+//            binding.searchproductrecyclerview.visibility = View.VISIBLE
+//                val adapter = productcardrecyclerview(requireContext(), productar)
+//                binding.searchproductrecyclerview.adapter = adapter
+//
+//        }
+//
+//        catch (e: Exception)
+//        {
+//            Log.d(TAG, "search Exception:$e ")
+//        }
+
 }

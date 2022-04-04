@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textview.MaterialTextView
 import com.mca.project29.R
 import com.mca.project29.dataModel.Product
+import com.mca.project29.dataModel.newProduct
 import com.squareup.picasso.Picasso
 
-class productcardrecyclerview(context: Context,arrayList: ArrayList<Product>):
+class productcardrecyclerview(context: Context, arrayList: ArrayList<newProduct>):
     RecyclerView.Adapter<productcardrecyclerview.ViewHolder>()
 {
     val con =context

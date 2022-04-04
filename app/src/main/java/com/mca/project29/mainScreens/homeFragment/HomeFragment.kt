@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.mca.project29.dataModel.Product
 import com.mca.project29.databinding.FragmentHomeBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -53,7 +54,9 @@ class HomeFragment : Fragment() {
                         val i2= item.getString("image")
                         Names.add(i)
                         ImageIds.add(i2.toString())
+
                     }
+
             withContext(Dispatchers.Main){
                    val adapter=homecardrecyclerview(requireContext(),Names,ImageIds,fg)
                     binding.homecardlist.adapter=adapter
@@ -87,7 +90,7 @@ class HomeFragment : Fragment() {
         catch (e:Exception)
         {
             withContext(Dispatchers.Main) {
-                Log.d(TAG, "getfiles Exception: " + e.message)
+                Log.d(TAG, "homefragement getfiles  Exception: " + e.message)
             }
         }
     }

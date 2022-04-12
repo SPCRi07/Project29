@@ -14,9 +14,15 @@ class Sessionmanager(  // Context
 
 {
     companion object {
+
         private const val PREF_NAME = "Pref"
         const val Name = "name"
         const val fName = "fname"
+        const val lName = "lname"
+        const val Address = "address"
+        const val City = "city"
+        const val Veg = "veg"
+
         private const val Uid = "Uid"
         const val ID = "ID"
         const val Image = "image"
@@ -143,17 +149,15 @@ class Sessionmanager(  // Context
         get() {
             val user = HashMap<String, String?>()
             // user name
-            user[KEY_NAME] =
-                pref.getString(KEY_NAME, null)
+            user[KEY_NAME] = pref.getString(KEY_NAME, null)
             // user email id
-            user[KEY_EMAIL] =
-                pref.getString(KEY_EMAIL, null)
-            user[KEY_EMAIL] =
-                pref.getString(KEY_EMAIL, null)
+            user[KEY_EMAIL] =pref.getString(KEY_EMAIL, null)
             user[ID] = pref.getString(ID, null)
-            user[Image] =
-                pref.getString(Image, null)
-
+            user[Image] = pref.getString(Image, null)
+            user[lName] =pref.getString(lName, null)
+            user[fName] = pref.getString(fName, null)
+            user[Address] = pref.getString(Address, null)
+            user[City] = pref.getString(City, null)
             // return user
             return user
         }
@@ -166,18 +170,25 @@ class Sessionmanager(  // Context
         return user
     }
 
+
     /**
      * Signup Parts
      *
      */
     fun signup_credentials(
-        name: String?,
-        father: String?,
-
+        fname: String?,
+        lname: String?,
+        address:String?,
+        city:String?,
+        veg:Boolean?
     ) {
-        editor.putString(Name, name)
-        editor.putString(fName, father)
-
+        editor.putString(fName, fname)
+        editor.putString(lName, lname)
+        editor.putString(Address, address)
+        editor.putString(City, city)
+        if (veg != null) {
+            editor.putBoolean(Veg,veg)
+        }
         editor.commit()
     }
 

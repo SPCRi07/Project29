@@ -16,7 +16,7 @@ import kotlinx.coroutines.withContext
 
 class InsertRecord {
 
-    val db = Firebase.firestore
+   // val db = Firebase.firestore
 
 //    val p2 = Product("Badam(Almonds)", "299", "43.8", true, "3","4.5","" )
 //    val p3 = Product("Ona Drakshi", "200", "46.0", true, "13","4.0","" )

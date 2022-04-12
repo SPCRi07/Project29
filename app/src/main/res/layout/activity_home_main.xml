@@ -12,7 +12,7 @@
         android:id="@+id/bottomnav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/accent"
+        android:background="@color/whitesolid"
         app:menu="@menu/bottommenu"
         app:itemTextColor="@color/black"
         app:elevation="15dp"
@@ -36,5 +36,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/bottom_nav"
         tools:ignore="FragmentTagUsage" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

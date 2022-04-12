@@ -22,7 +22,20 @@
     <string name="product">Product</string>
     <string name="price">Price</string>
     <string name="add_to_cart">Add to cart</string>
-    <string name="discount_upto">discount upto</string>
+    <string name="discount_upto">discount up to</string>
     <string name="search_product">Search Product</string>
+    <string name="basic_information">Basic Information</string>
+    <string name="your_first_name">Your First Name</string>
+    <string name="your_last_name">Your Last name</string>
+    <string name="your_city">Your City</string>
+    <string name="enter_your_address">Enter your Address</string>
+    <string name="are_you_vegetarian">Are you Vegetarian?</string>
+    <string name="next">Next</string>
+    <string name="login_credentials">Login Credentials</string>
+    <string name="enter_your_email_address">Enter your Email Address</string>
+    <string name="enter_your_mobile_number">Enter your mobile Number</string>
+    <string name="enter_your_password">Enter your Password</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="signup">Signup</string>
 
 </resources>

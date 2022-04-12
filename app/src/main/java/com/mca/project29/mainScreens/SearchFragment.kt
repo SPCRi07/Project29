@@ -55,9 +55,6 @@ class SearchFragment : Fragment() {
         try {
             val db = FirebaseFirestore.getInstance()
             val productar: ArrayList<newProduct> = ArrayList()
-            Log.d(TAG, "search: "+ name)
-
-
 
             val quer = db.collection("Products") .whereArrayContains("keywords", name.trim()).limit(50).get().await()
 
@@ -75,6 +72,7 @@ class SearchFragment : Fragment() {
                 val adapter = productcardrecyclerview(requireContext(), productar)
                 binding.searchproductrecyclerview.adapter = adapter
             }
+
         }
 
         catch (e:Exception){

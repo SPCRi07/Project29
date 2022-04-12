@@ -18,6 +18,5 @@ class HomeMain : AppCompatActivity() {
 
         val navController= findNavController(R.id.mainfragment)
         binding.bottomnav.setupWithNavController(navController)
-
     }
 }

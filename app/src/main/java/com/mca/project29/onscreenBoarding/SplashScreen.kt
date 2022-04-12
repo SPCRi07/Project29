@@ -51,7 +51,6 @@ class SplashScreen : Fragment() {
             else
             {
                 findNavController().navigate(R.id.action_splashScreen_to_viewpager3)
-
             }
         }, 1000)
 

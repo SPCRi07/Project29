@@ -5,12 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import com.mca.project29.loginRegister.LoginActivity
+import com.mca.project29.onscreenBoarding.FirstActivity
 
 
 class Sessionmanager(  // Context
     private var _context: Context?
 )
-
 
 {
     companion object {
@@ -67,7 +67,7 @@ class Sessionmanager(  // Context
     fun createLoginSession(
         id: String?,
         name: String?,
-        image: String?
+
     ) {
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true)
@@ -75,7 +75,6 @@ class Sessionmanager(  // Context
         editor.putString(ID, id)
         editor.putString(Name, name)
         // Storing email in pref
-        editor.putString(Image, image)
         // commit changes
         editor.commit()
     }
@@ -85,6 +84,8 @@ class Sessionmanager(  // Context
         editor.putBoolean(IS_LOGIN, true)
         editor.commit()
     }
+
+
 
     fun setsplashcomplete() {
         editor.putBoolean(Issplash, true)
@@ -170,6 +171,14 @@ class Sessionmanager(  // Context
         return user
     }
 
+    val getname: HashMap<String, String?>
+        get() {
+
+            val user = HashMap<String, String?>()
+            user[Name]=pref.getString(Name,null)
+            return user
+        }
+
 
     /**
      * Signup Parts
@@ -202,7 +211,7 @@ class Sessionmanager(  // Context
         editor.commit()
 
         // After logout redirect user to Loing Activity
-        val i = Intent(_context, LoginActivity::class.java)
+        val i = Intent(_context, FirstActivity::class.java)
         // Closing all the Activities
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
 

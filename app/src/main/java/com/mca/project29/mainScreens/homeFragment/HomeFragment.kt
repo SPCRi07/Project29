@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.mca.project29.Sessionmanager
 import com.mca.project29.dataModel.Product
 import com.mca.project29.databinding.FragmentHomeBinding
 import kotlinx.coroutines.CoroutineScope
@@ -23,15 +24,16 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding?= null
     private val binding get() = _binding!!
+    private lateinit var Sessionmanager:Sessionmanager
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding= FragmentHomeBinding.inflate(inflater, container, false)
         val view=binding.root
+        Sessionmanager= Sessionmanager(context)
         getfiles()
         gettabs()
-
         return view
     }
 
@@ -54,18 +56,17 @@ class HomeFragment : Fragment() {
                         val i2= item.getString("image")
                         Names.add(i)
                         ImageIds.add(i2.toString())
-
+                        Log.d(TAG, "gettabs files: $i $i2")
                     }
 
             withContext(Dispatchers.Main){
                    val adapter=homecardrecyclerview(requireContext(),Names,ImageIds,fg)
                     binding.homecardlist.adapter=adapter
-
             }
         }
 
         catch (e:Exception){
-            Log.d(TAG, "gettabserror: "+e.message)
+            Log.d(TAG, "get tabs error: "+e.message)
         }
     }
 
@@ -84,7 +85,6 @@ class HomeFragment : Fragment() {
                 binding.screenlist.adapter=imageadapter
                     binding.dotsIndicatorHome.setViewPager(binding.screenlist)
             }
-
         }
 
         catch (e:Exception)

@@ -46,6 +46,11 @@ class LoginOption : AppCompatActivity() {
         binding.signInButton.setOnClickListener {
             signIn()
         }
+
+        binding.btnsignup.setOnClickListener {
+            val intent=Intent(applicationContext,Signupbasic::class.java)
+            startActivity(intent)
+        }
         binding.btncustomemail.setOnClickListener {
             val intent=Intent(applicationContext,LoginActivity::class.java)
             startActivity(intent)
@@ -65,8 +70,7 @@ class LoginOption : AppCompatActivity() {
             val intent= Intent(applicationContext, HomeMain::class.java)
             startActivity(intent)
         }
-
-    }
+   }
 
     private fun signIn() {
         val signInIntent: Intent = mGoogleSignInClient?.signInIntent!!
@@ -110,5 +114,6 @@ class LoginOption : AppCompatActivity() {
                  }
             }
     }
+
 
 }

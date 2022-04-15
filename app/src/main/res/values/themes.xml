@@ -59,8 +59,8 @@
         <item name="boxCornerRadiusTopStart">5dp</item>
         <item name="boxStrokeColor">@color/softgreen</item>
         <item name="errorEnabled">true</item>
+        <item name="android:textColor">@color/black</item>
         <item name="endIconMode">clear_text</item>
-
         <item name="endIconTint">@color/black</item>
         <item name="hintTextColor">@color/black</item>
         <item name="android:layout_width">match_parent</item>
@@ -71,6 +71,7 @@
         <item name="android:backgroundTint">@color/white</item>
         <item name="android:drawablePadding">10dp</item>
         <item name="fontFamily">@font/adamina</item>
+
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

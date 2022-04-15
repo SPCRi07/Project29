@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
 <androidx.cardview.widget.CardView
@@ -19,7 +19,7 @@
     app:rippleColor="@color/softgreen"
     app:cardElevation="20dp"
     >
-        
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,8 +30,8 @@
 
                 <ImageView
                     android:id="@+id/productimage"
-                    android:layout_width="140sp"
-                    android:layout_height="140sp"
+                    android:layout_width="120sp"
+                    android:layout_height="120sp"
                     android:layout_gravity="center"
                     android:layout_marginStart="16dp"
                     android:contentDescription="@string/product"
@@ -59,7 +59,7 @@
                     style="@style/cardtext"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginStart="35dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/price"
                     app:layout_constraintStart_toEndOf="@+id/productimage"
@@ -70,7 +70,7 @@
                     style="@style/cardtext"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginStart="28dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/price"
                     app:layout_constraintStart_toEndOf="@+id/pricetext"
@@ -95,7 +95,7 @@
                     style="@style/cardtext"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
                     android:text="@string/price"
                     android:textColor="@color/red"
@@ -107,7 +107,7 @@
                     style="@style/cardtext"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="20dp"
                     android:drawableStart="@drawable/ic_baseline_star_24"
                     android:textColor="@color/red"
@@ -127,14 +127,14 @@
                     android:text="@string/add_to_cart"
                     android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.415"
                     app:layout_constraintStart_toEndOf="@+id/productrating"
                     app:layout_constraintTop_toBottomOf="@+id/canprice" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="5dp"
                     android:fontFamily="@font/alegreya_sans_light"
                     android:text="@string/discount_upto"
                     android:textColor="@color/black"

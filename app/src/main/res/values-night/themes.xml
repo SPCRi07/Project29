@@ -17,4 +17,37 @@
         <item name="android:textColor">@color/black</item>
         <item name="boxStrokeColor">@color/acc</item>
     </style>
+
+    <style name="inputlayout" parent="Widget.Design.TextInputLayout">
+
+        <item name="paddingStart">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="paddingEnd">10dp</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="boxBackgroundColor">@color/black</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxCornerRadiusBottomEnd">5dp</item>
+        <item name="boxCornerRadiusBottomStart">5dp</item>
+        <item name="boxCornerRadiusTopEnd">5dp</item>
+        <item name="boxCornerRadiusTopStart">5dp</item>
+        <item name="boxStrokeColor">@color/softgreen</item>
+        <item name="errorEnabled">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="endIconTint">@color/black</item>
+        <item name="hintTextColor">@color/black</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="inputedittext" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="fontFamily">@font/adamina</item>
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>

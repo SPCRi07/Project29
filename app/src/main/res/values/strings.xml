@@ -37,5 +37,10 @@
     <string name="enter_your_password">Enter your Password</string>
     <string name="confirm_your_password">Confirm your password</string>
     <string name="signup">Signup</string>
+    <string name="log_out">Log out</string>
+    <string name="get_on_time_delivery">Get on Time Delivery</string>
+    <string name="at_your_door_steps">At your Door Steps</string>
+    <string name="contactless_delivery">Contactless Delivery</string>
+    <string name="get_started">Get Started</string>
 
 </resources>

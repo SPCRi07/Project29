@@ -46,7 +46,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shapeableImageView"
-        app:rippleColor="@color/softgreen" />
+        app:rippleColor="@color/softgreen"
+
+        />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
@@ -88,6 +90,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_in_button"
+        app:layout_constraintVertical_bias="0.006"
+        app:rippleColor="@color/softgreen" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnsignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/sign_in_button"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/alegreya_sans_light"
+        android:gravity="center"
+        android:padding="10sp"
+        android:text="@string/signup"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/accent"
+        app:backgroundTintMode="src_over"
+        app:cornerRadius="20dp"
+        app:elevation="20sp"
+        app:icon="@drawable/smartphone"
+        app:iconPadding="10dp"
+        app:iconSize="20sp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnphone"
         app:layout_constraintVertical_bias="0.006"
         app:rippleColor="@color/softgreen" />
 

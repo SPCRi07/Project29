@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.mca.project29.mainScreens.CartFragment"
+        android:name="com.mca.project29.mainScreens.CartFragment.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment

@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
+import com.mca.project29.Sessionmanager
 import com.mca.project29.dataModel.newProduct
 import com.mca.project29.databinding.FragmentSearchBinding
 import com.mca.project29.mainScreens.ProductPage.productcardrecyclerview
@@ -26,6 +26,7 @@ class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
+    private lateinit var Sessionmanager:Sessionmanager
 
     var db: FirebaseFirestore? =null
     override fun onCreateView(
@@ -34,11 +35,11 @@ class SearchFragment : Fragment() {
     ): View {
         _binding= FragmentSearchBinding.inflate(inflater, container, false)
         val view=binding.root
+        Sessionmanager= Sessionmanager(context)
          binding.searchquerybtn.setOnClickListener {
            db = FirebaseFirestore.getInstance()
              val query=binding.searchinputlayout.editText?.text?.trim().toString()
             search(query)
-
         }
 
         return view
@@ -57,8 +58,8 @@ class SearchFragment : Fragment() {
             val productar: ArrayList<newProduct> = ArrayList()
 
             val quer = db.collection("Products") .whereArrayContains("keywords", name.trim()).limit(50).get().await()
-
             if (quer.documents.size > 0) {
+
                   for (item in quer.documents) {
                       val a = item.toObject<newProduct>()
                       if (a != null) {
@@ -67,12 +68,26 @@ class SearchFragment : Fragment() {
                   }
               }
 
-            withContext(Dispatchers.Main) {
-                binding.searchproductrecyclerview.visibility = View.VISIBLE
-                val adapter = productcardrecyclerview(requireContext(), productar)
-                binding.searchproductrecyclerview.adapter = adapter
-            }
 
+            withContext(Dispatchers.Main) {
+
+                if (quer.documents.size > 0 ) {
+                    binding.errortextsearch.visibility=View.GONE
+                    binding.searchgif.visibility=View.GONE
+                    binding.searchproductrecyclerview.visibility = View.VISIBLE
+                    val userid = Sessionmanager.getUid.toString()
+                    val adapter = productcardrecyclerview(requireContext(), productar, userid)
+                    binding.searchproductrecyclerview.adapter = adapter
+                }
+
+                else
+                {
+                    val txt="Sorry We don't have $name"
+                    binding.errortextsearch.text =txt
+                    binding.errortextsearch.visibility=View.VISIBLE
+                    binding.searchgif.visibility=View.VISIBLE
+                }
+                }
         }
 
         catch (e:Exception){

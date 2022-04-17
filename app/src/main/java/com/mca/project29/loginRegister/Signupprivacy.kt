@@ -126,7 +126,6 @@ class Signupprivacy : AppCompatActivity() {
         val address = data.get(Sessionmanager.Address)
         val veg = data.get(Sessionmanager.Veg)
         val id= sessionmanager.getUid.toString()
-
         val db = Firebase.firestore
 
         val user= user(id, fname, lname,false,city,address,email,mobile, password)
@@ -137,6 +136,7 @@ class Signupprivacy : AppCompatActivity() {
             val intent=Intent(applicationContext,HomeMain::class.java)
             startActivity(intent)
         }
+
     }
 
 

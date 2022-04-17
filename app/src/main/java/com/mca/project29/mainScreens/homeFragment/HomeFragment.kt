@@ -34,6 +34,7 @@ class HomeFragment : Fragment() {
         Sessionmanager= Sessionmanager(context)
         getfiles()
         gettabs()
+        binding.welcomemsg.text= Sessionmanager.getname[com.mca.project29.Sessionmanager.Name]
         return view
     }
 
@@ -56,7 +57,6 @@ class HomeFragment : Fragment() {
                         val i2= item.getString("image")
                         Names.add(i)
                         ImageIds.add(i2.toString())
-                        Log.d(TAG, "gettabs files: $i $i2")
                     }
 
             withContext(Dispatchers.Main){

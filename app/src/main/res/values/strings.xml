@@ -42,5 +42,9 @@
     <string name="at_your_door_steps">At your Door Steps</string>
     <string name="contactless_delivery">Contactless Delivery</string>
     <string name="get_started">Get Started</string>
+    <string name="quantity">Quantity:</string>
+    <string name="_onenumber">1</string>
+    <string name="add_items_first_hurry">Add Items First! Hurry</string>
+    <string name="your_total_is">Your Total is</string>
 
 </resources>

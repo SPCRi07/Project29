@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-
         android:theme="@style/appnametext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +50,7 @@
             android:drawableTint="@color/black"
             android:fontFamily="@font/noto_serif"
             android:hint="@string/search_product"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             android:textColor="@color/black"
             android:textSize="17sp"
             tools:ignore="UnusedAttribute"
@@ -75,11 +74,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchinputlayout"
         tools:listitem="@layout/productlistcard" />
+
+
+    <ImageView
+        android:id="@+id/searchgif"
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="112dp"
+        android:background="#fff"
+        android:visibility="gone"
+        android:src="@drawable/error404"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchinputlayout"
+        android:contentDescription="@string/app_name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/errortextsearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/alegreya_sans_light"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchgif" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

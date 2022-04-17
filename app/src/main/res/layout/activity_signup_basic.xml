@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/your_city"
             android:padding="10dp"
-            android:background="@color/white"
+            android:theme="@style/Widget.Material3.TextInputLayout.OutlinedBox"
            app:placeholderText="@string/your_city"
             >
 
@@ -103,7 +103,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:textColor="@color/black"
                 android:inputType="none"
                 tools:ignore="LabelFor" />

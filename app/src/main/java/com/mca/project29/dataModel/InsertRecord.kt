@@ -1,20 +1,29 @@
 package com.mca.project29.dataModel
 
 import android.content.ContentValues
+import android.content.ContentValues.TAG
+import android.content.Intent
+import android.os.Build
 import android.util.Log
+import android.view.View
+import androidx.annotation.RequiresApi
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
+import com.mca.project29.Sessionmanager
 import com.mca.project29.dataModel.Product
+import com.mca.project29.mainScreens.HomeMain
 import com.mca.project29.mainScreens.ProductPage.productcardrecyclerview
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import java.time.LocalDateTime
+import kotlin.random.Random
 
-class InsertRecord {
+public class InsertRecord {
 
    // val db = Firebase.firestore
 
@@ -249,5 +258,41 @@ class InsertRecord {
 //        {
 //            Log.d(TAG, "search Exception:$e ")
 //        }
-
 }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    public fun insertintocart(name: String, image: String, price: String, uid:String):Int {
+       val db = Firebase.firestore
+        var s:Int=5
+        val r=Random.nextInt(50000,1000000).toString()
+        val c= Random.nextInt(97,123).toChar().toString()
+        val k= Random.nextInt(999,99999999).toString()
+        val id=r.plus(c).plus(k)
+        val date= LocalDateTime.now().toString()
+        val item=cartitem(id,name,image,price,date,uid)
+        db.collection("cart").document(id).set(item).addOnSuccessListener {
+            s=1
+        }
+            .addOnFailureListener {
+                Log.d(TAG, "insertintocart: " +it.message.toString())
+                s=0
+            }
+        return s
+    }
+
+public fun removefromcart(id: String):Boolean {
+    val r=false
+    val db = FirebaseFirestore.getInstance()
+
+    val quer = db.collection("cart").document(id).delete().addOnCompleteListener {
+
+    }
+        .addOnFailureListener {
+            Log.d(TAG, "removefromcart: ${it.message.toBoolean()}")
+        }
+
+
+    return r
+}
+
+

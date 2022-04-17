@@ -23,7 +23,7 @@ class Sessionmanager(  // Context
         const val City = "city"
         const val Veg = "veg"
 
-        private const val Uid = "Uid"
+        const val Uid = "Uid"
         const val ID = "ID"
         const val Image = "image"
 

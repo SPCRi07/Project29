@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import com.mca.project29.dataModel.Product
+import com.mca.project29.Sessionmanager
 import com.mca.project29.dataModel.newProduct
 import com.mca.project29.databinding.ActivityProductPageBinding
 import kotlinx.coroutines.CoroutineScope
@@ -25,7 +25,7 @@ class Productpagefragment : Fragment() {
      private var param1: String? = null
     private var _binding: ActivityProductPageBinding? = null
     private val binding get() = _binding!!
-
+    private lateinit var Sessionmanager:Sessionmanager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -42,6 +42,8 @@ class Productpagefragment : Fragment() {
         val view=binding.root
         val txt="Products in $param1"
         binding.productnametext.text=txt
+        Sessionmanager= Sessionmanager(context)
+
         return view
 
      }
@@ -75,8 +77,8 @@ class Productpagefragment : Fragment() {
              //   Log.d(ContentValues.TAG, "product list: ${a.toString()}")
             }
             withContext(Dispatchers.Main){
-
-                val adapter= productcardrecyclerview(requireContext(),productar)
+                val userid= Sessionmanager.getUid[com.mca.project29.Sessionmanager.Uid].toString()
+                val adapter= productcardrecyclerview(requireContext(),productar,userid)
                  binding.productrecyclerview.adapter=adapter
             }
         }

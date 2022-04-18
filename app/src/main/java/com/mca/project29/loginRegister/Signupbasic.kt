@@ -9,9 +9,21 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import com.mca.project29.R
 import com.mca.project29.Sessionmanager
+import com.mca.project29.dataModel.cartitem
+import com.mca.project29.dataModel.user
 import com.mca.project29.databinding.ActivitySignupBasicBinding
+import com.mca.project29.mainScreens.CartFragment.cartrecyclerview
+import com.mca.project29.mainScreens.HomeMain
+import com.mca.project29.onscreenBoarding.binding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 
 class Signupbasic : AppCompatActivity() {
@@ -29,37 +41,29 @@ class Signupbasic : AppCompatActivity() {
 
         binding.signupnext.setOnClickListener {
 
-          val fname=binding.firstname.editText?.text?.trim().toString()
-          val lname=binding.lastname.editText?.text?.trim().toString()
-          val address=binding.address.editText?.text?.trim().toString()
-          val city=binding.city.text?.trim().toString()
-          val veg=binding.vegetarianswitch.isChecked
-            if(fname.isEmpty())
-            {
-              binding.firstname.error="Enter your First Name"
-            }
-          else if(lname.isEmpty())
-            {
-            binding.lastname.error="Enter your Last Name"
+          val fname = binding.firstname.editText?.text?.trim().toString()
+          val lname = binding.lastname.editText?.text?.trim().toString()
+          val address = binding.address.editText?.text?.trim().toString()
+          val city = binding.city.text?.trim().toString()
+          val veg = binding.vegetarianswitch.isChecked
+          if (fname.isEmpty()) {
+            binding.firstname.error = "Enter your First Name"
+          } else if (lname.isEmpty()) {
+            binding.lastname.error = "Enter your Last Name"
+          } else if (address.isEmpty()) {
+            binding.address.error = "Enter your address"
+          } else if (binding.city.isPerformingCompletion) {
+            Snackbar.make(view, "Select City", Snackbar.LENGTH_LONG).show()
+          } else {
+
+            session.signup_credentials(fname, lname, address, city, veg)
+            val i = Intent(applicationContext, Signupprivacy::class.java)
+            startActivity(i)
           }
-          else if(address.isEmpty())
-            {
-            binding.address.error="Enter your address"
-            }
-          else if(binding.city.isPerformingCompletion)
-            {
-            Snackbar.make(view,"Select City",Snackbar.LENGTH_LONG).show()
-          }
-          else
-            {
 
 
-              session.signup_credentials(fname, lname, address, city, veg)
-              val i=Intent(applicationContext,Signupprivacy::class.java)
-              startActivity(i)
-            }
+      }
 
-        }
 
       binding.signupbackbtn.setOnClickListener {
         val intent=Intent(applicationContext,LoginOption::class.java)
@@ -115,9 +119,9 @@ class Signupbasic : AppCompatActivity() {
 
     val ad=ArrayAdapter(applicationContext,R.layout.dropdown_city,ar_gujarat)
     binding.city.setAdapter(ad)
+
+
   }
-
-
-
 }
+
 

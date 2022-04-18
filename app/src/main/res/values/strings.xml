@@ -46,5 +46,10 @@
     <string name="_onenumber">1</string>
     <string name="add_items_first_hurry">Add Items First! Hurry</string>
     <string name="your_total_is">Your Total is</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="feedback">Feedback</string>
+    <string name="about_me">About Me</string>
+    <string name="enter_your_feedback_here">Enter your Feedback Here</string>
+    <string name="submit">submit</string>
 
 </resources>

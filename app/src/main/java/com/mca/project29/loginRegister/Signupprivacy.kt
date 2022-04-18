@@ -29,6 +29,7 @@ class Signupprivacy : AppCompatActivity() {
         binding= ActivitySignupprivacyBinding.inflate(layoutInflater)
         val view=binding.root
         setContentView(view)
+
         auth = Firebase.auth
         sessionmanager=Sessionmanager(applicationContext)
 

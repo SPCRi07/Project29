@@ -64,7 +64,6 @@ class CartFragment : Fragment(),onclicklistener {
             val quer = db.collection("cart") .whereEqualTo("uid", id.trim()).limit(50).get().await()
             if (quer.documents.size > 0) {
                 for (item in quer.documents) {
-
                     val a = item.toObject<cartitem>()
                     if (a != null) {
                         productar.add(a)
@@ -81,6 +80,7 @@ class CartFragment : Fragment(),onclicklistener {
 
                     binding.cartgif.visibility=View.GONE
                     binding.errortextcart.visibility=View.GONE
+                    binding.cartotal.visibility=View.GONE
                     binding.cartrecyclerview.visibility = View.VISIBLE
                     binding.cartotal.visibility=View.VISIBLE
                     val adapter = userid?.let { cartrecyclerview(requireContext(), productar, it,this@CartFragment) }

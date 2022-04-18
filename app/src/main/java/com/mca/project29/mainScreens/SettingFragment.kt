@@ -1,5 +1,6 @@
 package com.mca.project29.mainScreens
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.mca.project29.R
 import com.mca.project29.Sessionmanager
 import com.mca.project29.databinding.FragmentSettingBinding
+import com.mca.project29.mainScreens.Editprofile.editprofilebasic
+import com.mca.project29.mainScreens.ProductPage.Productpagefragment
+import com.mca.project29.mainScreens.ProductPage.Productpagefragment.Companion.newInstance
 
 
 class SettingFragment : Fragment() {
@@ -27,6 +32,20 @@ class SettingFragment : Fragment() {
             Firebase.auth.signOut()
             sessionmanager.logoutUser()
         }
+
+        binding.Feedback.setOnClickListener {
+            val i= Intent(context,FeedbackActivity::class.java)
+            startActivity(i)
+        }
+
+
+        binding.Editprofile.setOnClickListener {
+            val i= Intent(context,editprofilebasic::class.java)
+            startActivity(i)
+        }
+
+
+
         return view
     }
     override fun onDestroyView() {

@@ -44,7 +44,7 @@
             android:id="@+id/cartotal"
             android:padding="10dp"
             android:backgroundTint="@color/white"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cartrecyclerview"
             app:layout_constraintStart_toStartOf="parent"

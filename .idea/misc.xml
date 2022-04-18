@@ -37,14 +37,20 @@
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/splashscreen.xml" value="0.1" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/layout/viewpagerhomesceenitem.xml" value="0.24230072463768115" />
         <entry key="..\:/Softwares/android_projects/Project29/app/src/main/res/menu/bottommenu.xml" value="0.375" />
+        <entry key="..\:/android_projects/Project29/app/src/main/res/layout/activity_home_main.xml" value="0.375" />
         <entry key="..\:/android_projects/Project29/app/src/main/res/layout/activity_login.xml" value="0.375" />
         <entry key="..\:/android_projects/Project29/app/src/main/res/layout/activity_login_option.xml" value="0.375" />
         <entry key="..\:/android_projects/Project29/app/src/main/res/layout/activity_main.xml" value="0.375" />
         <entry key="..\:/android_projects/Project29/app/src/main/res/layout/activity_signup_basic.xml" value="0.36923076923076925" />
+        <entry key="..\:/android_projects/Project29/app/src/main/res/layout/activity_signupprivacy.xml" value="0.36923076923076925" />
         <entry key="..\:/android_projects/Project29/app/src/main/res/layout/cartcarditem.xml" value="0.375" />
+        <entry key="..\:/android_projects/Project29/app/src/main/res/layout/dropdown_city.xml" value="0.375" />
         <entry key="..\:/android_projects/Project29/app/src/main/res/layout/fragment_cart.xml" value="0.33" />
+        <entry key="..\:/android_projects/Project29/app/src/main/res/layout/fragment_feedback_fragement.xml" value="0.375" />
+        <entry key="..\:/android_projects/Project29/app/src/main/res/layout/fragment_home.xml" value="0.375" />
         <entry key="..\:/android_projects/Project29/app/src/main/res/layout/fragment_search.xml" value="0.375" />
         <entry key="..\:/android_projects/Project29/app/src/main/res/layout/fragment_setting.xml" value="0.375" />
+        <entry key="..\:/android_projects/Project29/app/src/main/res/layout/fragment_third_nav.xml" value="0.375" />
         <entry key="..\:/android_projects/Project29/app/src/main/res/layout/productlistcard.xml" value="0.375" />
         <entry key="app/src/main/res/drawable/default_dot.xml" value="0.187" />
         <entry key="app/src/main/res/drawable/selected_dot.xml" value="0.187" />

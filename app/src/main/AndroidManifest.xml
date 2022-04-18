@@ -13,15 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project29">
         <activity
+            android:name=".mainScreens.FeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mainScreens.Editprofile.editprofilebasic"
+            android:exported="false" />
+        <activity
+            android:name=".mainScreens.Editprofile.Profileprivacy"
+            android:exported="false" />
+        <activity
             android:name=".loginRegister.Signupprivacy"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".loginRegister.Signupbasic"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".loginRegister.LoginOption"
             android:exported="true" />

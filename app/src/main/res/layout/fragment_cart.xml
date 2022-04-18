@@ -34,16 +34,27 @@
         app:layout_constraintTop_toBottomOf="@+id/carttextmyro"
        />
 
-    <RelativeLayout
-        android:id="@+id/cartotal"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cartrecyclerview"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carttext"
-        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="20sp"
+            app:cardCornerRadius="10sp"
+            android:layout_margin="10dp"
+            android:id="@+id/cartotal"
+            android:padding="10dp"
+            android:backgroundTint="@color/white"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cartrecyclerview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carttext"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,19 +64,23 @@
             android:textSize="30sp"
             android:text="@string/your_total_is"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:fontFamily="@font/alegreya_sans_light"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:id="@+id/totaltxt"
-            tools:ignore="RelativeOverlap" />
 
+            <TextView
+                android:id="@+id/totaltxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/alegreya_sans_light"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartrecyclerview"

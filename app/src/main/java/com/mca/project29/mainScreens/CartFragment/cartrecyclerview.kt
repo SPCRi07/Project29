@@ -42,13 +42,18 @@ class cartrecyclerview(context: Context, arrayList: ArrayList<cartitem>, userid:
         holder.name.text = productlist[position].name
         Picasso.get().load(productlist[position].image).into(holder.image)
         holder.price.text="Rs.${productlist[position].price}"
-        holder.plus.setOnClickListener {
+          holder.plus.setOnClickListener {
             val ov=holder.quantity.text.toString()
             val s=Integer.parseInt(ov)
             val s2= s.plus(1)
             holder.quantity.text =s2.toString()
-            listen.onpriceClick(productlist[position].price.toString(),holder.quantity.text.toString())
+
+            listen.onpriceClick(productlist[position].price.toString(),holder.quantity.text.toString(),"plus")
         }
+
+
+
+
         holder.minus.setOnClickListener {
             val ov=holder.quantity.text
             val s=Integer.parseInt(ov.toString())
@@ -57,19 +62,24 @@ class cartrecyclerview(context: Context, arrayList: ArrayList<cartitem>, userid:
                 Snackbar.make(it,"you can remove item by clicking remove button",Snackbar.LENGTH_LONG).show()
              }
             else {
+
                 val s2 = s.minus(1)
+
                 holder.quantity.text = s2.toString()
-                listen.onpriceClick(productlist[position].price.toString(),holder.quantity.text.toString())
+                listen.onpriceClick(productlist[position].price.toString(),holder.quantity.text.toString(),"minus")
             }
+
             }
 
         holder.remove.setOnClickListener {
              removefromcart(productlist[position].id.toString())
+            listen.onpriceClick(productlist[position].price.toString(),holder.quantity.text.toString(),"remove")
+
             Snackbar.make(it,"Item Removed",Snackbar.LENGTH_LONG).show()
             productlist.removeAt(position)
             notifyItemRemoved(itemCount)
         }
-        listen.onpriceClick(productlist[position].price.toString(),holder.quantity.text.toString())
+
     }
 
     override fun getItemCount(): Int {
@@ -85,7 +95,5 @@ class cartrecyclerview(context: Context, arrayList: ArrayList<cartitem>, userid:
         val minus=view.findViewById<ImageButton>(R.id.removequantity)
         val quantity=view.findViewById<TextView>(R.id.quantity)
     }
-
-
 
 }

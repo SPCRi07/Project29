@@ -4,6 +4,7 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -17,14 +18,17 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.mca.project29.mainScreens.HomeMain
 import com.mca.project29.R
 import com.mca.project29.Sessionmanager
+import com.mca.project29.dataModel.usersimp
 import com.mca.project29.databinding.ActivityLoginOptionBinding
 
 
 class LoginOption : AppCompatActivity() {
+
     val RC_SIGN_IN=1
     var mGoogleSignInClient: GoogleSignInClient? = null
     private lateinit var sessionmanager: Sessionmanager
@@ -85,6 +89,7 @@ class LoginOption : AppCompatActivity() {
                 GoogleSignIn.getSignedInAccountFromIntent(data)
             handleSignInResult(task)
         }
+
     }
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
@@ -103,15 +108,23 @@ class LoginOption : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
-                    sessionmanager.setUid(user?.uid.toString())
-               //     Log.d(TAG, "firebaseAuthWithGoogle: "+user?.uid.toString())
-                     val intent= Intent(applicationContext, HomeMain::class.java)
-                    startActivity(intent)
+                    val db = Firebase.firestore
+                    val use=usersimp(user?.uid.toString(),user?.email.toString(),user?.displayName.toString(),user?.phoneNumber.toString())
+                    db.collection("users").document(user?.uid.toString()).set(use).addOnCompleteListener {
+
+                        sessionmanager.setUid(user?.uid.toString())
+                        sessionmanager.createLoginSession(user?.uid.toString(),user?.displayName.toString())
+                        //     Log.d(TAG, "firebaseAuthWithGoogle: "+user?.uid.toString())
+                        val intent= Intent(applicationContext, HomeMain::class.java)
+                        startActivity(intent)
+                    }
+
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-
                  }
+
             }
     }
 

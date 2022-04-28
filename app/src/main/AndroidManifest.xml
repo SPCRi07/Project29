@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project29">
         <activity
+            android:name=".mainScreens.Aboutme"
+            android:exported="false" />
+        <activity
             android:name=".mainScreens.FeedbackActivity"
             android:exported="false" />
         <activity

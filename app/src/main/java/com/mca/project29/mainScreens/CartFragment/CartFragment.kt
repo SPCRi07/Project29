@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import com.mca.project29.Sessionmanager
@@ -22,7 +23,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.lang.Integer.parseInt
-import java.util.*
 import kotlin.collections.ArrayList
 
 class CartFragment : Fragment(),onclicklistener {
@@ -46,15 +46,20 @@ class CartFragment : Fragment(),onclicklistener {
         binding.carttext.text=sessionmanager.getname[Sessionmanager.Name] + "' Cart"
         userid= sessionmanager.getUid[Sessionmanager.Uid].toString()
         getcartitems(userid.toString())
+        binding.buynow.setOnClickListener {
+            binding.cartrecyclerview.adapter = null
+            binding.totaltxt.text ="0"
+            Snackbar.make(view," You have purchased" +binding.totaltxt.text.toString(),Snackbar.LENGTH_LONG).show()
+        }
+
+
         return view
+
     }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding=null
     }
-
-
-
 
     @RequiresApi(Build.VERSION_CODES.N)
 
@@ -70,11 +75,8 @@ class CartFragment : Fragment(),onclicklistener {
                     }
                 }
             }
-            
 
-
-
-            withContext(Dispatchers.Main) {
+              withContext(Dispatchers.Main) {
 
                 if (quer.documents.size > 0){
 
@@ -83,7 +85,8 @@ class CartFragment : Fragment(),onclicklistener {
                     binding.cartotal.visibility=View.GONE
                     binding.cartrecyclerview.visibility = View.VISIBLE
                     binding.cartotal.visibility=View.VISIBLE
-                    val adapter = userid?.let { cartrecyclerview(requireContext(), productar, it,this@CartFragment) }
+                    binding.cartotal.visibility=View.VISIBLE
+                    val adapter = userid?.let { cartrecyclerview(requireContext(), productar, it,this@CartFragment)  }
                     binding.cartrecyclerview.adapter = adapter
                     setprice(productar)
                   }
@@ -94,7 +97,6 @@ class CartFragment : Fragment(),onclicklistener {
                     binding.errortextcart.visibility=View.VISIBLE
                 }
             }
-
         }
 
         catch (e: Exception){
@@ -115,8 +117,9 @@ class CartFragment : Fragment(),onclicklistener {
     }
 
 
+
     override fun onpriceClick(price: String?, quantity: String?, type: String?) {
-        
+
         val pri= price?.let { Integer.parseInt(it) }
         val q=(quantity?.let { Integer.parseInt(it) })
         val before= parseInt(binding.totaltxt.text.toString())
@@ -151,6 +154,9 @@ class CartFragment : Fragment(),onclicklistener {
 
 
         }
+
+
+
 }
 
 

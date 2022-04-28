@@ -29,7 +29,7 @@ class FeedbackActivity : AppCompatActivity() {
 
         binding.submit.setOnClickListener {
             val data: MutableMap<String, Any> = HashMap()
-            data["id"] = "Tokyo"
+            data["id"] = Sessionmanager.getUid[com.mca.project29.Sessionmanager.Uid].toString()
             data["feedback"] = binding.ratingbar.rating
             data["feedbacktext"]=binding.feedback.editText?.text.toString()
             val simpleDateFormat = SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z")
@@ -46,4 +46,5 @@ class FeedbackActivity : AppCompatActivity() {
 
         }
     }
+
 }

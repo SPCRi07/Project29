@@ -11,8 +11,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.mca.project29.mainScreens.HomeMain
 import com.mca.project29.Sessionmanager
+import com.mca.project29.dataModel.usersimp
 import com.mca.project29.databinding.ActivityLoginOtpEnterBinding
 
 class LoginOtpEnter : AppCompatActivity() {
@@ -164,21 +167,27 @@ class LoginOtpEnter : AppCompatActivity() {
         mauth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    val user = task.result.user
                    // startActivity(intent)
-                    val intent= Intent(applicationContext, HomeMain::class.java)
-                    //Log.d(TAG, "signInWithPhoneAuthCredential: user "+task.result.user)
-                   // Log.d(TAG, "signInWithPhoneAuthCredential: credentials"+task.result.credential)
-                 //   Log.d(TAG, "signInWithPhoneAuthCredential: additional"+task.result.additionalUserInfo)
-               //     Log.d(TAG, "signInWithPhoneAuthCredential: result"+task.result.user?.uid.toString())
-                    sessionmanager.setUid(task.result.user?.uid.toString())
-                    startActivity(intent)
-                    finish()
+                    val db = Firebase.firestore
+                    val use= usersimp(user?.uid.toString(),user?.email.toString(),user?.displayName.toString(),user?.phoneNumber.toString())
+                    db.collection("users").document(user?.uid.toString()).set(use).addOnCompleteListener {
+
+                        val intent= Intent(applicationContext, HomeMain::class.java)
+
+                        sessionmanager.setUid(task.result.user?.uid.toString())
+                        sessionmanager.createLoginSession(task.result.user?.uid.toString(),task.result.user?.displayName.toString())
+                        startActivity(intent)
+                        finish()
+                    }
+
+
                 } else {
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         Snackbar.make(binding.root,"OTP is not Valid",Snackbar.LENGTH_LONG).show()
-
                     }
                 }
+
             }
     }
 

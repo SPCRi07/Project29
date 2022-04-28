@@ -51,5 +51,12 @@
     <string name="about_me">About Me</string>
     <string name="enter_your_feedback_here">Enter your Feedback Here</string>
     <string name="submit">submit</string>
+    <string name="buy">Buy</string>
+    <string name="_21mca141">21MCA141</string>
+    <string name="solanki_parth_r">Solanki Parth R</string>
+    <string name="mca_ii">MCA-II</string>
+    <string name="ca854_mat_case_study">CA854 MAT CASE STUDY</string>
+    <string name="myro_grocery_buying_app">MYRO GROCERY BUYING APP</string>
+    <string name="submitted_to_prof_ms_pooja_patel">Submitted to: Prof:Ms.Pooja Patel</string>
 
 </resources>

@@ -32,7 +32,10 @@ class SettingFragment : Fragment() {
             Firebase.auth.signOut()
             sessionmanager.logoutUser()
         }
-
+        binding.About.setOnClickListener {
+            val i= Intent(context,Aboutme::class.java)
+            startActivity(i)
+        }
         binding.Feedback.setOnClickListener {
             val i= Intent(context,FeedbackActivity::class.java)
             startActivity(i)

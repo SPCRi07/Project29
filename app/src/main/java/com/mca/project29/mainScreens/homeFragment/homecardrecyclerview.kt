@@ -22,6 +22,7 @@ class homecardrecyclerview(
 ):
     RecyclerView.Adapter<homecardrecyclerview.ViewHolder>()
 {
+
     val con =context
     val arstring =arrayList
     val arimage =arrayimage
@@ -31,8 +32,9 @@ class homecardrecyclerview(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-    val view=LayoutInflater.from(con).inflate(R.layout.homecardlist,parent,false)
+        val view=LayoutInflater.from(con).inflate(R.layout.homecardlist,parent,false)
         return ViewHolder(view)
+
     }
 
     @SuppressLint("RestrictedApi")
